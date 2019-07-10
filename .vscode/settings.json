@@ -1,0 +1,32 @@
+{
+  "python.pythonPath": "/home/gauss/arm/importante/work/ai/ai_python/bin/python3",
+  "cSpell.words": [
+    "psycopg",
+    "revolico"
+  ],
+  "explorerExcludedFiles.show": false,
+  "files.exclude": {
+    "*.pyc": "explorerExcludedFiles",
+    "*__pycache__": "explorerExcludedFiles",
+    ".~lock*": "explorerExcludedFiles",
+    "*/package-lock.json": "explorerExcludedFiles",
+    "*/package.json": "explorerExcludedFiles",
+    "*/webpack.config.js": "explorerExcludedFiles",
+    "*/wp-activate.php": "explorerExcludedFiles",
+    "*/wp-blog-header.php": "explorerExcludedFiles",
+    "*/wp-comments-post.php": "explorerExcludedFiles",
+    "*/wp-cron.php": "explorerExcludedFiles",
+    "*/wp-links-opml.php": "explorerExcludedFiles",
+    "*/wp-load.php": "explorerExcludedFiles",
+    "*/wp-login.php": "explorerExcludedFiles",
+    "*/wp-mail.php": "explorerExcludedFiles",
+    "*/wp-settings.php": "explorerExcludedFiles",
+    "*/wp-signup.php": "explorerExcludedFiles",
+    "*/wp-trackback.php": "explorerExcludedFiles",
+    "*/xmlrpc.php": "explorerExcludedFiles",
+    "*/.babelrc": "explorerExcludedFiles",
+    "*/.editorconfig": "explorerExcludedFiles",
+    "*/.eslintrc.json": "explorerExcludedFiles",
+    "*/.vscode": "explorerExcludedFiles"
+  }
+}

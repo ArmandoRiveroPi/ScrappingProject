@@ -1,0 +1,3 @@
+Provide html data files to the scrapper as strings
+Scrap some fields out of the files
+Save scrapped data on the DataBase

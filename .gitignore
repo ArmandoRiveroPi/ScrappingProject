@@ -1,0 +1,6 @@
+# Python crap
+*.pyc
+*__pycache__
+
+# Office crap
+.~lock*
