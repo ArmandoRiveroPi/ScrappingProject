@@ -78,6 +78,7 @@ class Scrapper:
             "title": 'h1.get_text()',
             "content": 'find("span", class_="showAdText").get_text()',
             "datetime": 'find(text=re.compile(".*Fecha:")).parent.nextSibling.nextSibling.get_text()',
+            "price": 'find(text=re.compile(".*Precio:")).parent.nextSibling.nextSibling.get_text()',
             "user_name": 'find(text=re.compile(".*Nombre:")).parent.nextSibling.nextSibling.get_text()',
             "user_phone": 'find(text=re.compile(".*fono:")).parent.nextSibling.nextSibling.get_text()',
             "classification": 'find(id="pathaway").get_text()',
