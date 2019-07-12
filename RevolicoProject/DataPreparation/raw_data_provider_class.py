@@ -1,5 +1,6 @@
 import re
 import os
+import random
 
 
 class RawDataProvider(object):
@@ -35,19 +36,27 @@ class RawDataProvider(object):
         """
         return self.goodRE.match(filename)
 
-    def get_file_names(self):
+    def get_file_names(self, amount=0):
         """Builds the list of good data files
         """
+        count = 0
         for root, dirs, files in os.walk(self.folder):
             cleanFiles = [os.path.join(root, file)
                           for file in files if self.is_good_file(file)]
             self.fileNames += cleanFiles
+            count += len(cleanFiles)
+            if count >= amount and amount != 0:
+                break
+        if amount != 0:
+            self.fileNames = random.sample(self.fileNames, amount)
         return self.fileNames
 
-    def get_file_accessors(self):
-        self.get_file_names()
-        for filename in self.fileNames:
-            self.fileAccessors.append(FileAccessor(filename))
+    def get_file_accessors(self, amount=0):
+        if amount == 0:
+            amount = len(self.fileNames)
+        self.get_file_names(amount)
+        for index in range(amount):
+            self.fileAccessors.append(FileAccessor(self.fileNames[index]))
         return self.fileAccessors
 
     def test_file_access(self):
@@ -62,8 +71,8 @@ class FileAccessor:
     def __init__(self, fileURI=''):
         self.fileURI = fileURI
 
-    def get_content(self, encoding="utf-8"):
-        with open(self.fileURI, mode='r', encoding=encoding, errors="ignore") as f:
+    def get_content(self, encoding="ISO-8859-1"):
+        with open(self.fileURI, mode='r', encoding=encoding, errors="replace") as f:
             content = f.read()
         return content
 

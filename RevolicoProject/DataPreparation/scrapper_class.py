@@ -1,5 +1,7 @@
-from bs4 import BeautifulSoup
 import re
+import sys
+from bs4 import BeautifulSoup
+from multiprocessing import Pool
 
 
 class Scrapper:
@@ -16,9 +18,12 @@ class Scrapper:
         self.provider = RawDataProvider
         self.accessors = []
 
-    def build_accessors(self):
-        self.accessors = self.provider.get_file_accessors()
+    def build_accessors(self, amount=0):
+        self.accessors = self.provider.get_file_accessors(amount)
         return self.accessors
+
+    # def build_bs_object(self, accessor):
+    #     return BeautifulSoup(accessor.get_content(), features="html5lib")
 
     def get_field(self, bsCode='',  amount=0, bsObjects=[]):
         """Extracts data from a field by a Beautiful Soup code
@@ -40,7 +45,10 @@ class Scrapper:
             else:
                 soup = BeautifulSoup(
                     self.accessors[index].get_content(), features="html5lib")
-            fieldData.append(str(eval('soup.' + bsCode)))
+            try:
+                fieldData.append(str(eval('soup.' + bsCode)))
+            except AttributeError:
+                fieldData.append('')
         return fieldData
 
     def scrap_data(self, amount=0):
@@ -52,9 +60,18 @@ class Scrapper:
         Returns:
             [list] -- list of dictionaries with the fields scrapped and their values
         """
+        # Build accessors
+        self.build_accessors(amount)
         # Build bs objects
         bsObjects = [BeautifulSoup(self.accessors[i].get_content(), features="html5lib")
                      for i in range(amount)]
+        # recursion = sys.getrecursionlimit()
+        # sys.setrecursionlimit(20000)
+        # processPool = Pool()
+        # bsObjects = processPool.map(self.build_bs_object, self.accessors)
+        # processPool.close()
+        # processPool.join()
+        # sys.setrecursionlimit(recursion)
         # Define how to scrap each field (by a code bs will use)
         fieldCodes = {
             "id": 'find(text=re.compile(".*Id:")).parent.nextSibling.nextSibling.get_text()',
