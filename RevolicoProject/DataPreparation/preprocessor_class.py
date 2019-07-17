@@ -11,16 +11,16 @@ class Preprocessor:
     """
 
     def __init__(self):
-        self.cleanTransforms = {
-            r"\s\s+": " ",  # multiple white spaces
-        }
+        self.cleanTransforms = [
+            [r"\s\s+", " "],  # multiple white spaces
+        ]
 
     def general_cleaner(self, content):
-        for key in self.cleanTransforms:
+        for trans in self.cleanTransforms:
             # Apply dictionary transforms
-            content = re.sub(key, self.cleanTransforms[key], content)
+            content = re.sub(trans[0], trans[1], content)
             # Strip newlines and whitespaces
-            content = content.strip('\n ')
+            content = content.strip('\n *-')
         return content
 
     def transform_date(self, key, content):
@@ -48,11 +48,10 @@ class Preprocessor:
 
     def transform_phone(self, key, content):
         if key == 'user_phone':
-            parser = PhoneParser(content)
-            content = content + ' --> ' + "///".join(parser.phone_numbers())
+            content = ",".join(self.phoneParser.phone_numbers(content))
         return content
 
-    def all_transforms(self, dataDic):
+    def all_transforms(self, dataDic: dict):
         """Apply all data transforms to the fields in a data dictionary
 
         Arguments:
@@ -63,18 +62,24 @@ class Preprocessor:
         """
         for key in dataDic:
             dataDic[key] = self.general_cleaner(dataDic[key])
-            if key == 'datetime':
-                dataDic[key] = self.transform_date(key, dataDic[key])
-            if key == 'is_renewable':
-                dataDic[key] = self.transform_is_renewable(key, dataDic[key])
-            if key == 'classification':
-                dataDic[key] = self.transform_classification(key, dataDic[key])
-            if key == 'user_phone':
-                dataDic[key] = self.transform_phone(key, dataDic[key])
+        # Special transforms
+        dataDic['datetime'] = self.transform_date(
+            'datetime', dataDic['datetime'])
+        dataDic['is_renewable'] = self.transform_is_renewable(
+            'is_renewable', dataDic['is_renewable'])
+        dataDic['classification'] = self.transform_classification(
+            'classification', dataDic['classification'])
+        dataDic['user_phone'] = self.transform_phone(
+            'user_phone', dataDic['user_phone'])
+
+        dataDic['extra_data'] = '{ "id_set":["' + dataDic['ad_id'] + \
+            '"], "datetime_set": ["' + dataDic['datetime'] + '"] }'
 
         return dataDic
 
     def preprocess_data(self, data):
+        # Create the phone parser
+        self.phoneParser = PhoneParser('')
         # Apply all transforms
         data = [self.all_transforms(datum) for datum in data]
         return data
@@ -89,44 +94,48 @@ class PhoneParser:
 
     def __init__(self, phoneString):
         self.string = phoneString
+        self.initianSubs = [
+            [r'\b\(|\+53(\d?)\D+', r'\1'],  # the Cuban prefix
+            [r'\b\(|\+34(\d?)\D+', r'\1'],  # the Spanish prefix
+            [r'\b\(|\+1(\d?)\D+', r'\1'],  # the US prefix
+            [r'\b(uno|UNO)\b', '1'],  # Number 1 written with words
+            [r'\b(dos|DOS)\b', '2'],  # Number 2 written with words
+            [r'\b(tres|TRES)\b', '3'],  # Number 3 written with words
+            [r'\b(cuatro|CUATRO)\b', '4'],  # Number 4 written with words
+            [r'\b(cinco|CINCO)\b', '5'],  # Number 5 written with words
+            [r'\b(seis|SEIS)\b', '6'],  # Number 6 written with words
+            [r'\b(siete|SIETE)\b', '7'],  # Number 7 written with words
+            [r'\b(ocho|OCHO)\b', '8'],  # Number 8 written with words
+            [r'\b(nueve|NUEVE)\b', '9'],  # Number 9 written with words
+            [r'\b(cero|CERO)\b', '0'],  # Number 0 written with words
+            [r'[^0-9 +]+', ' '],  # anything but a +, a space or a number
+            [r'\s+', ' '],  # all multiple white spaces
+        ]
+        self.finalSubs = [
+            [r'\D', r''],  # Any not a number
+        ]
 
     def initial_clean(self):
-        subDic = {
-            r'\b(?:\(|\+)53(\d?)\D+': '\1',  # the Cuban prefix
-            r'\b1\D+': '',  # The US prefix
-            r'\b(uno|UNO)\b': '',  # Number 1 written with words
-            r'\b(dos|DOS)\b': '',  # Number 2 written with words
-            r'\b(tres|TRES)\b': '',  # Number 3 written with words
-            r'\b(cuatro|CUATRO)\b': '',  # Number 4 written with words
-            r'\b(cinco|CINCO)\b': '',  # Number 5 written with words
-            r'\b(seis|SEIS)\b': '',  # Number 6 written with words
-            r'\b(siete|SIETE)\b': '',  # Number 7 written with words
-            r'\b(ocho|OCHO)\b': '',  # Number 8 written with words
-            r'\b(nueve|NUEVE)\b': '',  # Number 9 written with words
-            r'\b(cero|CERO)\b': '',  # Number 0 written with words
-            r'[^+0-9 ]': ' ',  # anything but a +, a space or not a number
-            r'\s+': ' ',  # all multiple white spaces
-        }
-        for pattern, repl in subDic.items():
-            self.string = re.sub(pattern, repl, self.string)
+        for sub in self.initianSubs:
+            self.string = re.sub(sub[0], sub[1], self.string)
         return self.string
 
     def final_clean(self, phone):
-        subDic = {
-            r'\D': '',  # any not a number
-        }
-        for pattern, repl in subDic.items():
-            phone = re.sub(pattern, repl, phone)
+        for sub in self.finalSubs:
+            phone = re.sub(sub[0], sub[1], phone)
         return phone
 
-    def phone_numbers(self):
+    def phone_numbers(self, phone=''):
         """returns the list of formated phone numbers
 
         Returns:
             list -- a list of phone numbers
         """
+        if phone != '':
+            self.string = phone
         self.initial_clean()
         numbers = [self.string]
+        # Only do further processing if the string is not a block of numbers
         if not re.match(r'^\+?\d+$', self.string):
             numbers = re.findall(r"(?:\D*\d){8}", self.string)
         numbers = [self.final_clean(number) for number in numbers]

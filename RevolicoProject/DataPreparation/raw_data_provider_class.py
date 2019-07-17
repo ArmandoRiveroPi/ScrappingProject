@@ -45,26 +45,27 @@ class RawDataProvider(object):
                           for file in files if self.is_good_file(file)]
             self.fileNames += cleanFiles
             count += len(cleanFiles)
-            if count >= amount and amount != 0:
-                break
         if amount != 0:
-            self.fileNames = random.sample(self.fileNames, amount)
+            # pick an amount of random files
+            # self.fileNames = random.sample(self.fileNames, amount)
+            # pick the first amount of files
+            self.fileNames = self.fileNames[0:amount]
         return self.fileNames
 
     def get_file_accessors(self, amount=0):
-        if amount == 0:
-            amount = len(self.fileNames)
+        # if amount == 0:
+        #     amount = len(self.fileNames)
         self.get_file_names(amount)
         for index in range(amount):
             self.fileAccessors.append(FileAccessor(self.fileNames[index]))
         return self.fileAccessors
 
-    def test_file_access(self):
-        """Some simple human tests to check everything is working with the class
-        """
-        self.get_file_accessors()
-        print("Total Files ", len(self.fileNames))
-        print(self.fileAccessors[-1].get_base_path())
+    # def test_file_access(self):
+    #     """Some simple human tests to check everything is working with the class
+    #     """
+    #     self.get_file_accessors()
+    #     print("Total Files ", len(self.fileNames))
+    #     print(self.fileAccessors[-1].get_base_path())
 
 
 class FileAccessor:

@@ -10,11 +10,13 @@ scrapper = Scrapper(rawData)
 
 prep = Preprocessor()
 
-data = scrapper.scrap_data(100)
+data = scrapper.scrap_data(20)
 prepdata = prep.preprocess_data(data)
 for dic in prepdata:
-    print('ID--> ' + dic['id'] + ' Phone --> ' + dic['user_phone'])
-    print('Price: ' + dic['price'])
+    print('ID--> ' + dic['ad_id'] + ' Phone --> ' + dic['user_phone'])
+    # print('Classification: ' +
+    #       dic['classification'] + ' *** Price: ' + dic['price'])
+    # print(dic['classification'])
 
 
 end = time.time()

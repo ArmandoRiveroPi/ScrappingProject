@@ -2,6 +2,7 @@ import re
 import sys
 from bs4 import BeautifulSoup
 from multiprocessing import Pool
+from ..DataBase import Advert
 
 
 class Scrapper:
@@ -17,6 +18,7 @@ class Scrapper:
     def __init__(self, RawDataProvider):
         self.provider = RawDataProvider
         self.accessors = []
+        self.adType = Advert()
 
     def build_accessors(self, amount=0):
         self.accessors = self.provider.get_file_accessors(amount)
@@ -65,30 +67,14 @@ class Scrapper:
         # Build bs objects
         bsObjects = [BeautifulSoup(self.accessors[i].get_content(), features="html5lib")
                      for i in range(amount)]
-        # recursion = sys.getrecursionlimit()
-        # sys.setrecursionlimit(20000)
-        # processPool = Pool()
-        # bsObjects = processPool.map(self.build_bs_object, self.accessors)
-        # processPool.close()
-        # processPool.join()
-        # sys.setrecursionlimit(recursion)
-        # Define how to scrap each field (by a code bs will use)
-        fieldCodes = {
-            "id": 'find(text=re.compile(".*Id:")).parent.nextSibling.nextSibling.get_text()',
-            "title": 'h1.get_text()',
-            "content": 'find("span", class_="showAdText").get_text()',
-            "datetime": 'find(text=re.compile(".*Fecha:")).parent.nextSibling.nextSibling.get_text()',
-            "price": 'find(text=re.compile(".*Precio:")).parent.nextSibling.nextSibling.get_text()',
-            "user_name": 'find(text=re.compile(".*Nombre:")).parent.nextSibling.nextSibling.get_text()',
-            "user_phone": 'find(text=re.compile(".*fono:")).parent.nextSibling.nextSibling.get_text()',
-            "classification": 'find(id="pathaway").get_text()',
-            "is_renewable": 'find(id="auto_renew_hint")',
-        }
         fieldValues = {}
         # Loop through each field
-        for field, code in fieldCodes.items():
-            # Get the field values in a dictionary
-            fieldValues[field] = self.get_field(code, amount, bsObjects)
+        for field, fieldDic in self.adType.fields.items():
+            # If the field defines how to scrap it
+            if 'scrapCode' in fieldDic:
+                code = fieldDic['scrapCode']
+                # Get the field values in a dictionary
+                fieldValues[field] = self.get_field(code, amount, bsObjects)
 
         # Integrate the data on a list of dictionaries
         data = []
