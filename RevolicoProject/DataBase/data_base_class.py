@@ -1,13 +1,12 @@
-from .advert_class import SQLAlchemyAdvert, Advert, AdsTable
-from .revo_user_class import RevoUser, SQLAlchemyUser, UsersTable
+from .data_type_classes import RevoUser, UsersTable, Advert, AdsTable, SQLAlchemyAdvert, SQLAlchemyUser, DeclarativeBase
 from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy.orm import sessionmaker
+from sqlalchemy.orm import sessionmaker, relationship
 import re
 from datetime import datetime
 import json
 
-base = declarative_base()
+# base = declarative_base()
 
 
 class DataBase:
@@ -34,7 +33,7 @@ class DataBase:
             if not field in elemData:
                 elemData[field] = fieldInfo['default']
 
-        base.metadata.create_all(self.cursor)
+        DeclarativeBase.metadata.create_all(self.cursor)
         # Try to get the element by ID
         oldElem = self.session.query(elemClass).get(elemID)
         newElem = elemClass()
@@ -49,6 +48,13 @@ class DataBase:
             self.session.add(newElem)
 
         self.session.commit()
+
+    def get_all_elements(self, elementClass):
+        elements = self.session.query(elementClass).all()
+        return elements
+
+    def create_tables(self):
+        DeclarativeBase.metadata.create_all(self.cursor)
 
     # ----- SECTION FOR ADS -------------
     def create_ads_table(self):
@@ -66,18 +72,18 @@ class DataBase:
             adDicts = [self.advert_to_dic(ad) for ad in ads]
         return adDicts
 
-    def read_ad(self, adID):
-        # End early if the ID doesn't have a good format
-        if not self.goodID.match(adID):
-            return
+    # def read_ad(self, adID):
+    #     # End early if the ID doesn't have a good format
+    #     if not self.goodID.match(adID):
+    #         return
 
-        results = self.cursor.execute(
-            "SELECT * FROM ads WHERE ad_id = {ad_id};".format(ad_id=adID))
-        ads = self.rows_to_ads(results)
-        if len(ads):
-            return ads[0]
-        else:
-            return None
+    #     results = self.cursor.execute(
+    #         "SELECT * FROM ads WHERE ad_id = {ad_id};".format(ad_id=adID))
+    #     ads = self.rows_to_ads(results)
+    #     if len(ads):
+    #         return ads[0]
+    #     else:
+    #         return None
 
     def write_ad(self, adDic: dict):
         # End early if the ID doesn't have a good format
@@ -112,15 +118,18 @@ class DataBase:
         for ad in adList:
             self.write_ad(ad)
 
-    def rows_to_ads(self, rows: list):
-        ads = [{'ad_id': row[0], 'title':row[1]} for row in rows]
-        return ads
+    # def rows_to_ads(self, rows: list):
+    #     ads = [{'ad_id': row[0], 'title':row[1]} for row in rows]
+    #     return ads
 
     def advert_to_dic(self, adObj: SQLAlchemyAdvert):
         adDic = {}
         for field in self.adType.fields:
             adDic[field] = getattr(adObj, field)
         return adDic
+
+    def get_all_ads(self):
+        return self.get_all_elements(SQLAlchemyAdvert)
 
     # ---------- SECTION FOR USERS ------------
     def create_users_table(self):
@@ -131,9 +140,13 @@ class DataBase:
             pass
 
     def get_all_users(self):
-        users = self.session.query(SQLAlchemyUser).all()
-        return users
+        return self.get_all_elements(SQLAlchemyUser)
 
     def write_user(self, userDic):
         self.write_element(userDic['user_id'], userDic,
                            self.userType.fields, SQLAlchemyUser)
+
+    def find_users_by_phone(self, phone):
+        usersWithPhone = self.session.query(SQLAlchemyUser).filter(
+            SQLAlchemyUser.phone_numbers.like('%' + phone + '%'))
+        return usersWithPhone

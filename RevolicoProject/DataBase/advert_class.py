@@ -6,9 +6,11 @@ advert fields to scrap by the scrapper
 advert class for sqlalchemy
 """
 
-from sqlalchemy import MetaData, Table, Column, String, Integer, Text, Boolean, DateTime, JSON
+from sqlalchemy import MetaData, Table, Column, String, Integer, Text, Boolean, DateTime, ForeignKey
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy import create_engine
+from sqlalchemy.orm import relationship
+# from .revo_user_class import SQLAlchemyUser
 
 base = declarative_base()
 
@@ -34,6 +36,9 @@ class Advert:
         "price": {
             "scrapCode":  'find(text=re.compile(".*Precio:")).parent.nextSibling.nextSibling.get_text()',
             'default': '',
+        },
+        "user": {  # relationship
+            'default': "",
         },
         "user_name": {
             "scrapCode": 'find(text=re.compile(".*Nombre:")).parent.nextSibling.nextSibling.get_text()',
@@ -73,6 +78,8 @@ class SQLAlchemyAdvert(base):
     content = Column(Text)
     price = Column(String)
     classification = Column(String)  # coma separated list of classifications
+    # relationship("SQLAlchemyUser", back_populates='adverts')
+    user = Column(Integer, ForeignKey('users.user_id'))
     user_name = Column(String)
     user_phone = Column(String)  # Coma separated list of phone numbers
     datetime = Column(DateTime)
@@ -91,6 +98,9 @@ class AdsTable:
                            Column('price', String),
                            # coma separated list of classifications
                            Column('classification', String),
+                           #    Column('user', relationship(
+                           #        "SQLAlchemyUser", back_populates='adverts')),
+                           Column('user', Integer, ForeignKey('users.user_id')),
                            Column('user_name', String),
                            # Coma separated list of phone numbers
                            Column('user_phone', String),
