@@ -25,10 +25,38 @@ class DataBase:
         self.session = sessionmaker(self.cursor)()
         self.goodID = re.compile(r'\d{8,}')
         self.adType = Advert()
+        self.userType = RevoUser()
 
+    # ------ GENERAL SECTION -----------
+    def write_element(self, elemID, elemData, elemFields, elemClass):
+        # Set the fields to their defaults in case they don't exist
+        for field, fieldInfo in elemFields.items():
+            if not field in elemData:
+                elemData[field] = fieldInfo['default']
+
+        base.metadata.create_all(self.cursor)
+        # Try to get the element by ID
+        oldElem = self.session.query(elemClass).get(elemID)
+        newElem = elemClass()
+        # If the element exists only modify it
+        if oldElem:
+            for field in elemFields:
+                setattr(oldElem, field, elemData[field])
+        else:
+            # If the ad doesn't exist, you need to add it
+            for field in elemFields:
+                setattr(newElem, field, elemData[field])
+            self.session.add(newElem)
+
+        self.session.commit()
+
+    # ----- SECTION FOR ADS -------------
     def create_ads_table(self):
-        adTb = AdsTable(self.dbString)
-        adTb.table.create()
+        try:
+            adTb = AdsTable(self.dbString)
+            adTb.table.create()
+        except:
+            pass
 
     def find_ads_by_title(self, title: str):
         ads = self.session.query(SQLAlchemyAdvert).filter(
@@ -56,26 +84,29 @@ class DataBase:
         if not self.goodID.match(str(adDic['ad_id'])):
             return
 
-        # Set the fields to their defaults in case they don't exist
-        for field, fieldInfo in self.adType.fields.items():
-            if not field in adDic:
-                adDic[field] = fieldInfo['default']
+        self.write_element(adDic['ad_id'], adDic,
+                           self.adType.fields, SQLAlchemyAdvert)
 
-        base.metadata.create_all(self.cursor)
-        # Try to get the ad by ID
-        oldAdvert = self.session.query(SQLAlchemyAdvert).get(adDic['ad_id'])
-        newAdvert = SQLAlchemyAdvert()
-        # If the ad exists only modify it
-        if oldAdvert:
-            for field in self.adType.fields:
-                setattr(oldAdvert, field, adDic[field])
-        else:
-            # If the ad doesn't exist, you need to add it
-            for field in self.adType.fields:
-                setattr(newAdvert, field, adDic[field])
-            self.session.add(newAdvert)
+        # # Set the fields to their defaults in case they don't exist
+        # for field, fieldInfo in self.adType.fields.items():
+        #     if not field in adDic:
+        #         adDic[field] = fieldInfo['default']
 
-        self.session.commit()
+        # base.metadata.create_all(self.cursor)
+        # # Try to get the ad by ID
+        # oldAdvert = self.session.query(SQLAlchemyAdvert).get(adDic['ad_id'])
+        # newAdvert = SQLAlchemyAdvert()
+        # # If the ad exists only modify it
+        # if oldAdvert:
+        #     for field in self.adType.fields:
+        #         setattr(oldAdvert, field, adDic[field])
+        # else:
+        #     # If the ad doesn't exist, you need to add it
+        #     for field in self.adType.fields:
+        #         setattr(newAdvert, field, adDic[field])
+        #     self.session.add(newAdvert)
+
+        # self.session.commit()
 
     def write_ads(self, adList: list):
         for ad in adList:
@@ -93,9 +124,16 @@ class DataBase:
 
     # ---------- SECTION FOR USERS ------------
     def create_users_table(self):
-        usersTb = UsersTable(self.dbString)
-        usersTb.table.create()
+        try:
+            usersTb = UsersTable(self.dbString)
+            usersTb.table.create()
+        except:
+            pass
 
     def get_all_users(self):
         users = self.session.query(SQLAlchemyUser).all()
         return users
+
+    def write_user(self, userDic):
+        self.write_element(userDic['user_id'], userDic,
+                           self.userType.fields, SQLAlchemyUser)
