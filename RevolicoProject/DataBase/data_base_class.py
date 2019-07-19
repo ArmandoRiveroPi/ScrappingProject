@@ -1,4 +1,5 @@
 from .advert_class import SQLAlchemyAdvert, Advert, AdsTable
+from .revo_user_class import RevoUser, SQLAlchemyUser, UsersTable
 from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
@@ -89,3 +90,12 @@ class DataBase:
         for field in self.adType.fields:
             adDic[field] = getattr(adObj, field)
         return adDic
+
+    # ---------- SECTION FOR USERS ------------
+    def create_users_table(self):
+        usersTb = UsersTable(self.dbString)
+        usersTb.table.create()
+
+    def get_all_users(self):
+        users = self.session.query(SQLAlchemyUser).all()
+        return users

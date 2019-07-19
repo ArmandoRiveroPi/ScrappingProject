@@ -11,22 +11,14 @@ scrapper = Scrapper(rawData)
 
 prep = Preprocessor()
 
-data = scrapper.scrap_data(1000)
+data = scrapper.scrap_data(10)
 prepdata = prep.preprocess_data(data)
 
 db = DataBase()
-# db.create_ads_table()
-writer = AdsDBWriter(db)
+db.create_users_table()
+# writer = AdsDBWriter(db)
 
-writer.write_ads(prepdata)
-
-# ad = db.read_ad('30307274')
-# ad = db.find_ads_by_field(
-#     'title', 'Asus VivoBook | 15.6 FHD | i5-8va | 8GB RAM | 128SSD+1TB | Lector Huella | 0Km')
-# print(ad)
-# ads = db.find_ads_by_title('Mariachi')
-# for ad in ads:
-#     print(ad)
+# writer.write_ads(prepdata)
 
 
 end = time.time()
