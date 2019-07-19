@@ -1,7 +1,6 @@
 import re
 import sys
 from bs4 import BeautifulSoup
-from multiprocessing import Pool
 from ..DataBase import Advert
 
 

@@ -3,6 +3,8 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy import create_engine
 from sqlalchemy.orm import relationship
 
+# You have to make all the db operations under this same base,
+# otherwise the ORM might not work properly
 DeclarativeBase = declarative_base()
 
 
@@ -78,28 +80,28 @@ class SQLAlchemyAdvert(DeclarativeBase):
     extra_data = Column(Text)
 
 
-class AdsTable:
-    def __init__(self, dbString):
-        self.db = create_engine(dbString)
-        self.meta = MetaData(self.db)
-        self.table = Table('ads', self.meta,
-                           Column('ad_id', Integer, primary_key=True),
-                           Column('title', String),
-                           Column('content', Text),
-                           Column('price', String),
-                           # coma separated list of classifications
-                           Column('classification', String),
-                           #    Column('user', relationship(
-                           #        "SQLAlchemyUser", back_populates='adverts')),
-                           Column('user', Integer, ForeignKey('users.user_id')),
-                           Column('user_name', String),
-                           # Coma separated list of phone numbers
-                           Column('user_phone', String),
-                           Column('datetime', DateTime),
-                           Column('is_renewable', Boolean),
-                           # Free format JSON data associated with the Ad
-                           Column('extra_data', Text),
-                           )
+# class AdsTable:
+#     def __init__(self, dbString):
+#         self.db = create_engine(dbString)
+#         self.meta = MetaData(self.db)
+#         self.table = Table('ads', self.meta,
+#                            Column('ad_id', Integer, primary_key=True),
+#                            Column('title', String),
+#                            Column('content', Text),
+#                            Column('price', String),
+#                            # coma separated list of classifications
+#                            Column('classification', String),
+#                            #    Column('user', relationship(
+#                            #        "SQLAlchemyUser", back_populates='adverts')),
+#                            Column('user', Integer, ForeignKey('users.user_id')),
+#                            Column('user_name', String),
+#                            # Coma separated list of phone numbers
+#                            Column('user_phone', String),
+#                            Column('datetime', DateTime),
+#                            Column('is_renewable', Boolean),
+#                            # Free format JSON data associated with the Ad
+#                            Column('extra_data', Text),
+#                            )
 
 
 class RevoUser:
@@ -152,66 +154,16 @@ class SQLAlchemyUser(DeclarativeBase):
     adverts = relationship("SQLAlchemyAdvert")
 
 
-class UsersTable:
-    def __init__(self, dbString):
-        self.db = create_engine(dbString)
-        self.meta = MetaData(self.db)
-        self.table = Table('users', self.meta,
-                           Column('user_id', Integer, primary_key=True),
-                           # list of phone numbers
-                           Column('name', String),
-                           Column('phone_numbers', String),
-                           # list of ads ids linked to user
-                           Column('name_set', Text),
-                           #    Column('adverts', relationship("SQLAlchemyAdvert")),
-                           )
-
-
-def sqlalchemy_object_factory(objType, base=None):
-    if base == None:
-        base = declarative_base()
-
-    class SQLAlchemyUser(base):
-        """Class to represent an advert to the SQLAlchemy ORM
-
-        Arguments:
-            base {object} -- declarative_base() built object to inherit from
-        """
-        __tablename__ = 'users'
-
-        user_id = Column(Integer, primary_key=True)
-        name = Column(String)
-        phone_numbers = Column(String)
-        name_set = Column(Text)
-        # , order_by=SQLAlchemyAdvert.ad_id,back_populates="user"
-        adverts = relationship("SQLAlchemyAdvert")
-
-    class SQLAlchemyAdvert(base):
-        """Class to represent an advert to the SQLAlchemy ORM
-
-        Arguments:
-            base {object} -- declarative_base() built object to inherit from
-        """
-        __tablename__ = 'ads'
-
-        ad_id = Column(Integer, primary_key=True)
-        title = Column(String)
-        content = Column(Text)
-        price = Column(String)
-        # coma separated list of classifications
-        classification = Column(String)
-        # relationship("SQLAlchemyUser", back_populates='adverts')
-        user = Column(Integer, ForeignKey('users.user_id'))
-        user_name = Column(String)
-        user_phone = Column(String)  # Coma separated list of phone numbers
-        datetime = Column(DateTime)
-        is_renewable = Column(Boolean)
-        # Free format JSON data associated with the Ad
-        extra_data = Column(Text)
-
-    if objType == 'advert':
-        return SQLAlchemyAdvert()
-    elif objType == 'user':
-        return SQLAlchemyUser()
-    else:
-        assert 0, "Wrong SQLALchemy object type : " + objType
+# class UsersTable:
+#     def __init__(self, dbString):
+#         self.db = create_engine(dbString)
+#         self.meta = MetaData(self.db)
+#         self.table = Table('users', self.meta,
+#                            Column('user_id', Integer, primary_key=True),
+#                            # list of phone numbers
+#                            Column('name', String),
+#                            Column('phone_numbers', String),
+#                            # list of ads ids linked to user
+#                            Column('name_set', Text),
+#                            #    Column('adverts', relationship("SQLAlchemyAdvert")),
+#                            )
