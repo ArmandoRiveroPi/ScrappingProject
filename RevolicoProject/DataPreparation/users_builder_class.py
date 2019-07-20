@@ -40,6 +40,8 @@ class UsersBuilder:
             adDic = self.adClass.advert_to_dic(ad)
             adDic['user'] = primaryUser['user_id']
             self.db.write_ad(adDic)
+        # Count how many ads does each user has
+        self.count_users_ads()
 
     def find_users_with_phones(self, phoneList):
         users = []
@@ -108,3 +110,12 @@ class UsersBuilder:
             'name_set': name,
         }
         return user
+
+    def count_users_ads(self):
+        users = self.db.get_all_users()
+        for user in users:
+            # get the count of ads linked to the user
+            adsCount = self.db.count_users_ads(user.user_id)
+            user.ads_amount = adsCount
+            userDic = self.userClass.from_obj_to_dic(user)
+            self.db.write_user(userDic)

@@ -120,3 +120,13 @@ class DataBase:
 
     def delete_user(self, userID):
         self.delete_element(userID, SQLAlchemyUser)
+
+    def get_users_ads(self, userID):
+        ads = self.session.query(SQLAlchemyAdvert).join(
+            SQLAlchemyUser).filter(SQLAlchemyUser.user_id == userID).all()
+        return ads
+
+    def count_users_ads(self, userID):
+        adsAmount = self.session.query(SQLAlchemyAdvert).join(
+            SQLAlchemyUser).filter(SQLAlchemyUser.user_id == userID).count()
+        return adsAmount

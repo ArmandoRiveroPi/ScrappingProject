@@ -13,10 +13,10 @@ baseFolder = "/home/gauss/arm/importante/work/ai/projects/revolico/Revolico [A F
 rawData = RawDataProvider(baseFolder)
 
 scrapper = Scrapper(rawData)
+data = scrapper.scrap_data(2)
+
 
 prep = Preprocessor()
-
-data = scrapper.scrap_data(5)
 prepdata = prep.preprocess_data(data)
 
 db = DataBase()
@@ -28,14 +28,6 @@ writer.write_ads(prepdata)
 
 usersB = UsersBuilder(db)
 usersB.build_users()
-
-# user = {
-#     'user_id': '1',
-#     'phone_numbers': '78889933,78883567',
-#     'ad_set': '["12121212", "32323232"]'
-# }
-
-# db.write_user(user)
 
 
 end = time.time()

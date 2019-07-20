@@ -99,6 +99,7 @@ class SQLAlchemyUser(DeclarativeBase):
     phone_numbers = Column(String)
     name_set = Column(Text)
     adverts = relationship("SQLAlchemyAdvert")
+    ads_amount = Column(Integer)
 
 
 class RevoUser:
@@ -116,6 +117,9 @@ class RevoUser:
 
         "name_set": {
             'default': '',
+        },
+        "ads_amount": {
+            'default': 0,
         },
 
     }
