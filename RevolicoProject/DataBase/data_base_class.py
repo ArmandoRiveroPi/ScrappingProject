@@ -1,5 +1,5 @@
 from .data_type_classes import RevoUser, Advert, SQLAlchemyAdvert, SQLAlchemyUser, DeclarativeBase
-from sqlalchemy import create_engine
+from sqlalchemy import create_engine, func as sql_func, asc as sql_asc
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker, relationship
 import re
@@ -27,13 +27,23 @@ class DataBase:
         self.userType = RevoUser()
 
     # ------ GENERAL SECTION -----------
-    def write_element(self, elemID, elemData, elemFields, elemClass):
+    def write_element(self, idName, elemData, elemFields, elemClass):
         # Set the fields to their defaults in case they don't exist
         for field, fieldInfo in elemFields.items():
             if not field in elemData:
                 elemData[field] = fieldInfo['default']
 
         DeclarativeBase.metadata.create_all(self.cursor)
+        # If the ID is cero, auto increment it
+        elemID = int(elemData[idName])
+        if elemID == 0:
+            try:
+                elemID = self.session.query(sql_func.max(
+                    getattr(elemClass, idName))).scalar() + 1
+            except TypeError:
+                elemID = 1
+            elemData[idName] = elemID
+
         # Try to get the element by ID
         oldElem = self.session.query(elemClass).get(elemID)
         newElem = elemClass()
@@ -42,7 +52,7 @@ class DataBase:
             for field in elemFields:
                 setattr(oldElem, field, elemData[field])
         else:
-            # If the ad doesn't exist, you need to add it
+            # If the element doesn't exist, you need to add it
             for field in elemFields:
                 setattr(newElem, field, elemData[field])
             self.session.add(newElem)
@@ -56,13 +66,12 @@ class DataBase:
     def create_tables(self):
         DeclarativeBase.metadata.create_all(self.cursor)
 
+    def delete_element(self, elemID, elementClass):
+        if int(elemID) != 0:
+            elem = self.session.query(elementClass).get(elemID)
+            self.session.delete(elem)
+
     # ----- SECTION FOR ADS -------------
-    # def create_ads_table(self):
-    #     try:
-    #         adTb = AdsTable(self.dbString)
-    #         adTb.table.create()
-    #     except:
-    #         pass
 
     def find_ads_by_title(self, title: str):
         ads = self.session.query(SQLAlchemyAdvert).filter(
@@ -77,7 +86,7 @@ class DataBase:
         if not self.goodID.match(str(adDic['ad_id'])):
             return
 
-        self.write_element(adDic['ad_id'], adDic,
+        self.write_element('ad_id', adDic,
                            self.adType.fields, SQLAlchemyAdvert)
 
     def write_ads(self, adList: list):
@@ -93,22 +102,21 @@ class DataBase:
     def get_all_ads(self):
         return self.get_all_elements(SQLAlchemyAdvert)
 
+    def delete_ad(self, adID):
+        self.delete_element(adID, SQLAlchemyAdvert)
     # ---------- SECTION FOR USERS ------------
-    # def create_users_table(self):
-    #     try:
-    #         usersTb = UsersTable(self.dbString)
-    #         usersTb.table.create()
-    #     except:
-    #         pass
 
     def get_all_users(self):
         return self.get_all_elements(SQLAlchemyUser)
 
     def write_user(self, userDic):
-        self.write_element(userDic['user_id'], userDic,
+        self.write_element('user_id', userDic,
                            self.userType.fields, SQLAlchemyUser)
 
     def find_users_by_phone(self, phone):
         usersWithPhone = self.session.query(SQLAlchemyUser).filter(
-            SQLAlchemyUser.phone_numbers.like('%' + phone + '%'))
+            SQLAlchemyUser.phone_numbers.like('%' + phone + '%')).order_by('user_id')
         return usersWithPhone
+
+    def delete_user(self, userID):
+        self.delete_element(userID, SQLAlchemyUser)

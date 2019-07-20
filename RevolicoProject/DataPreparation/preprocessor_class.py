@@ -51,6 +51,11 @@ class Preprocessor:
             content = ",".join(self.phoneParser.phone_numbers(content))
         return content
 
+    def transform_name(self, key, content):
+        if key == 'user_name':
+            content = re.sub(r"[^ a-zA-Z0-9]", "", content)
+        return content
+
     def all_transforms(self, dataDic: dict):
         """Apply all data transforms to the fields in a data dictionary
 
@@ -71,6 +76,8 @@ class Preprocessor:
             'classification', dataDic['classification'])
         dataDic['user_phone'] = self.transform_phone(
             'user_phone', dataDic['user_phone'])
+        dataDic['user_name'] = self.transform_name(
+            'user_name', dataDic['user_name'])
 
         dataDic['extra_data'] = '{ "id_set":["' + dataDic['ad_id'] + \
             '"], "datetime_set": ["' + dataDic['datetime'] + '"] }'
