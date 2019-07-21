@@ -47,10 +47,11 @@ class UsersBuilder:
         users = []
         # for each phone number find all users
         for phone in phoneList:
-            userObjs = self.db.find_users_by_phone(phone)
-            # Append the users
-            users += [self.userClass.from_obj_to_dic(userObj)
-                      for userObj in userObjs if userObj]
+            if self.userClass.is_phone_good(phone):
+                userObjs = self.db.find_users_by_phone(phone)
+                # Append the users
+                users += [self.userClass.from_obj_to_dic(userObj)
+                          for userObj in userObjs if userObj]
         return dict_unique(users)
 
     def merge_users(self, userList):

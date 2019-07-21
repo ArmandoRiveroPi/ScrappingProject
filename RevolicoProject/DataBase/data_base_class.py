@@ -11,6 +11,8 @@ import json
 
 class DataBase:
     """Main class to encapsulate the DB functionality
+
+    Right now mostly relying on SQL Alchemy
     """
 
     def __init__(self):

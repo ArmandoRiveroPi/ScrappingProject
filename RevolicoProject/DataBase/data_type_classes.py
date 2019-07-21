@@ -2,6 +2,7 @@ from sqlalchemy import MetaData, Table, Column, String, Integer, Text, Boolean, 
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy import create_engine
 from sqlalchemy.orm import relationship
+import re
 
 # You have to make all the db operations under this same base,
 # otherwise the ORM might not work properly
@@ -124,6 +125,9 @@ class RevoUser:
 
     }
 
+    def __init__(self):
+        self.goodPhone = re.compile(r'\d{8,}')
+
     def from_obj_to_dic(self, obj: SQLAlchemyUser):
         userDic = {}
         for field, fieldInfo in self.fields.items():
@@ -135,3 +139,6 @@ class RevoUser:
         for field in userDic:
             setattr(userObj, field, userDic[field])
         return userObj
+
+    def is_phone_good(self, phone):
+        return bool(self.goodPhone.match(phone))

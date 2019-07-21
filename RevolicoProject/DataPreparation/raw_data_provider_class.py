@@ -21,9 +21,10 @@ class RawDataProvider(object):
             baseFolder {string} -- absolute path of the folder where the data is
         """
         self.folder = baseFolder
-        self.goodRE = re.compile('.*(\d{8,})\.html')
+        self.goodRE = re.compile(r'.*(\d{8,})\.html$')
         self.fileNames = []
         self.fileAccessors = []
+        self.fileAmount = 0
 
     def is_good_file(self, filename):
         """Tests wether the file name is well formed
@@ -39,12 +40,13 @@ class RawDataProvider(object):
     def get_file_names(self, amount=0):
         """Builds the list of good data files
         """
-        count = 0
         for root, dirs, files in os.walk(self.folder):
             cleanFiles = [os.path.join(root, file)
                           for file in files if self.is_good_file(file)]
             self.fileNames += cleanFiles
-            count += len(cleanFiles)
+        # Now you know how many files do you have in total
+        self.fileAmount = len(self.fileNames)
+        amount = min(amount, self.fileAmount)
         if amount != 0:
             # pick an amount of random files
             # self.fileNames = random.sample(self.fileNames, amount)
@@ -52,20 +54,29 @@ class RawDataProvider(object):
             self.fileNames = self.fileNames[0:amount]
         return self.fileNames
 
-    def get_file_accessors(self, amount=0):
-        # if amount == 0:
-        #     amount = len(self.fileNames)
-        self.get_file_names(amount)
-        for index in range(amount):
-            self.fileAccessors.append(FileAccessor(self.fileNames[index]))
+    def get_file_accessors(self, amount=0, buildFiles=True):
+        # Clean the file accessors
+        self.fileAccessors = []
+        # Only build the file list if commanded
+        if buildFiles:
+            self.get_file_names(amount)
+        # When amount == 0 means infinity, so behavior changes
+        if amount > 0:
+            for index in range(amount):
+                self.fileAccessors.append(FileAccessor(self.fileNames[index]))
+        else:
+            for fileName in self.fileNames:
+                self.fileAccessors.append(FileAccessor(fileName))
+
         return self.fileAccessors
 
-    # def test_file_access(self):
-    #     """Some simple human tests to check everything is working with the class
-    #     """
-    #     self.get_file_accessors()
-    #     print("Total Files ", len(self.fileNames))
-    #     print(self.fileAccessors[-1].get_base_path())
+    def get_accessors_slice(self, start=0, end=0):
+        files = self.get_file_names(0)
+        start = min(start, self.fileAmount)
+        end = min(end, self.fileAmount)
+        self.fileNames = files[start:end]
+        self.get_file_accessors(0, False)
+        return self.fileAccessors
 
 
 class FileAccessor:

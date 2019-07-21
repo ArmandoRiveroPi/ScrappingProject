@@ -2,6 +2,7 @@ import re
 import sys
 from bs4 import BeautifulSoup
 from ..DataBase import Advert
+from .raw_data_provider_class import RawDataProvider
 
 
 class Scrapper:
@@ -14,8 +15,8 @@ class Scrapper:
     Provides data fields of the html files
     """
 
-    def __init__(self, RawDataProvider):
-        self.provider = RawDataProvider
+    def __init__(self, rawDataProvider: RawDataProvider):
+        self.provider = rawDataProvider
         self.accessors = []
         self.adType = Advert()
 
@@ -52,7 +53,7 @@ class Scrapper:
                 fieldData.append('')
         return fieldData
 
-    def scrap_data(self, amount=0):
+    def scrap_data(self, amount=0, buildAccessors=True):
         """Scraps some amount of files for all the fields
 
         Keyword Arguments:
@@ -62,7 +63,8 @@ class Scrapper:
             [list] -- list of dictionaries with the fields scrapped and their values
         """
         # Build accessors
-        self.build_accessors(amount)
+        if buildAccessors:
+            self.build_accessors(amount)
         # Build bs objects
         bsObjects = [BeautifulSoup(self.accessors[i].get_content(), features="html5lib")
                      for i in range(amount)]
@@ -85,6 +87,9 @@ class Scrapper:
             data.append(dataDic)
         return data
 
-    def test_scrapper(self):
-        self.build_accessors()
-        print(self.scrap_data(20))
+    def scrap_by_interval(self, start=0, end=0):
+        # Build accessors by interval
+        self.accessors = self.provider.get_accessors_slice(start, end)
+        # Call scrap_data without rebuilding the accessors
+        data = self.scrap_data(end - start, False)
+        return data
