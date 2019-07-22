@@ -44,6 +44,8 @@ class RawDataProvider(object):
             cleanFiles = [os.path.join(root, file)
                           for file in files if self.is_good_file(file)]
             self.fileNames += cleanFiles
+        # Sort to warranty the file order will be the same
+        self.fileNames.sort()
         # Now you know how many files do you have in total
         self.fileAmount = len(self.fileNames)
         amount = min(amount, self.fileAmount)

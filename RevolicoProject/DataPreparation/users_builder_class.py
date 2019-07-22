@@ -17,6 +17,7 @@ class UsersBuilder:
     def build_users(self):
         # Get all ads and loop through them
         ads = self.db.get_all_ads()
+        counter = 0
         for ad in ads:
             # for each ad get a list of phone numbers
             phones = ad.user_phone.split(',')
@@ -40,6 +41,8 @@ class UsersBuilder:
             adDic = self.adClass.advert_to_dic(ad)
             adDic['user'] = primaryUser['user_id']
             self.db.write_ad(adDic)
+            if counter % 1000 == 0:
+                print(' Created user for ad # ' + str(counter))
         # Count how many ads does each user has
         self.count_users_ads()
 
