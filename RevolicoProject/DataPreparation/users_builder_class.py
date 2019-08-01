@@ -41,6 +41,8 @@ class UsersBuilder:
             adDic = self.adClass.advert_to_dic(ad)
             adDic['user'] = primaryUser['user_id']
             self.db.write_ad(adDic)
+
+            counter += 1
             if counter % 1000 == 0:
                 print(' Created user for ad # ' + str(counter))
         # Count how many ads does each user has

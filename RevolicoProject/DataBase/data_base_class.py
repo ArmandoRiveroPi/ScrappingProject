@@ -1,7 +1,8 @@
 from .data_type_classes import RevoUser, Advert, SQLAlchemyAdvert, SQLAlchemyUser, DeclarativeBase
 from sqlalchemy import create_engine, func as sql_func, asc as sql_asc
 from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy.orm import sessionmaker, relationship
+from sqlalchemy.orm import sessionmaker, relationship, load_only
+# from sqlalchemy.sql import func
 import re
 from datetime import datetime
 import json
@@ -15,9 +16,9 @@ class DataBase:
     Right now mostly relying on SQL Alchemy
     """
 
-    def __init__(self):
+    def __init__(self, dbName='revolico'):
         self.user = 'postgres'
-        self.dbName = 'revolico'
+        self.dbName = dbName
         self.password = 'root'
         self.host = 'localhost:5432'
         self.dbString = "postgres://{user}:{password}@{host}/{db}".format(
@@ -65,6 +66,9 @@ class DataBase:
         elements = self.session.query(elementClass).all()
         return elements
 
+    def get_element_by_id(self, elemID, elemClass):
+        return self.session.query(elemClass).get(elemID)
+
     def create_tables(self):
         DeclarativeBase.metadata.create_all(self.cursor)
 
@@ -103,6 +107,9 @@ class DataBase:
 
     def get_all_ads(self):
         return self.get_all_elements(SQLAlchemyAdvert)
+
+    def get_ad_by_id(self, adID):
+        return self.get_element_by_id(adID, SQLAlchemyAdvert)
 
     def delete_ad(self, adID):
         self.delete_element(adID, SQLAlchemyAdvert)

@@ -28,6 +28,8 @@ class Preprocessor:
             datetime = dateparser.parse(content)
             if datetime:
                 content = datetime.isoformat(sep=" ")
+            else:
+                content = None
         return content
 
     def transform_is_renewable(self, key, content):
@@ -80,7 +82,7 @@ class Preprocessor:
             'user_name', dataDic['user_name'])
 
         dataDic['extra_data'] = '{ "id_set":["' + dataDic['ad_id'] + \
-            '"], "datetime_set": ["' + dataDic['datetime'] + '"] }'
+            '"], "datetime_set": ["' + str(dataDic['datetime']) + '"] }'
 
         return dataDic
 

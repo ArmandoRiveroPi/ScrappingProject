@@ -1,6 +1,6 @@
 import re
 import sys
-from bs4 import BeautifulSoup
+from bs4 import BeautifulSoup, SoupStrainer
 from ..DataBase import Advert
 from .raw_data_provider_class import RawDataProvider
 
@@ -24,9 +24,6 @@ class Scrapper:
         self.accessors = self.provider.get_file_accessors(amount)
         return self.accessors
 
-    # def build_bs_object(self, accessor):
-    #     return BeautifulSoup(accessor.get_content(), features="html5lib")
-
     def get_field(self, bsCode='',  amount=0, bsObjects=[]):
         """Extracts data from a field by a Beautiful Soup code
 
@@ -45,8 +42,7 @@ class Scrapper:
             if len(bsObjects) > index:
                 soup = bsObjects[index]
             else:
-                soup = BeautifulSoup(
-                    self.accessors[index].get_content(), features="html5lib")
+                soup = self.build_bs_object(self.accessors[index])
             try:
                 fieldData.append(str(eval('soup.' + bsCode)))
             except AttributeError:
@@ -66,7 +62,7 @@ class Scrapper:
         if buildAccessors:
             self.build_accessors(amount)
         # Build bs objects
-        bsObjects = [BeautifulSoup(self.accessors[i].get_content(), features="html5lib")
+        bsObjects = [self.build_bs_object(self.accessors[i])
                      for i in range(amount)]
         fieldValues = {}
         # Loop through each field
@@ -93,3 +89,9 @@ class Scrapper:
         # Call scrap_data without rebuilding the accessors
         data = self.scrap_data(end - start, False)
         return data
+
+    def build_bs_object(self, accessor):
+        strain = SoupStrainer("div")
+        soup = BeautifulSoup(accessor.get_content(),
+                             features="lxml", parse_only=strain)
+        return soup

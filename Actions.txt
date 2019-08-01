@@ -2,4 +2,5 @@
 ** Scrap some fields out of the files
 ** Save scrapped data on the DataBase
 ** Make the scrapper and the builders production-testing friendly (if not fully ready)
+** Find faster alternatives for BeautifulSoup
 Create data sets providers
