@@ -118,6 +118,9 @@ class DataBase:
     def get_all_users(self):
         return self.get_all_elements(SQLAlchemyUser)
 
+    def get_user_by_id(self, userID):
+        return self.get_element_by_id(userID, SQLAlchemyUser)
+
     def write_user(self, userDic):
         self.write_element('user_id', userDic,
                            self.userType.fields, SQLAlchemyUser)

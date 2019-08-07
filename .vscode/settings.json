@@ -1,6 +1,9 @@
 {
-  "python.pythonPath": "/home/gauss/anaconda3/bin/python3",
-  "cSpell.words": ["psycopg", "revolico"],
+  "python.pythonPath": "/home/gauss/arm/importante/work/ai/ai_python/bin/python3",
+  "cSpell.words": [
+    "psycopg",
+    "revolico"
+  ],
   "explorerExcludedFiles.show": false,
   "files.exclude": {
     "*.pyc": true,
@@ -24,6 +27,9 @@
     "*/.babelrc": true,
     "*/.editorconfig": true,
     "*/.eslintrc.json": true,
-    "*/.vscode": true
+    "*/.vscode": true,
+    "*/friend-finder": "explorerExcludedFiles",
+    "*/node_modules*": "explorerExcludedFiles",
+    "*.zip": "explorerExcludedFiles"
   }
 }

@@ -21,7 +21,26 @@ def dict_average(dic):
 
     Arguments:
         dic {dict} -- assumed to be a dictionary where the values are numbers
+
+    Returns:
+        float|int -- the average value
     """
     values = list(dic.values())
     average = sum(values)/len(values)
     return average
+
+
+def dict_median(dic):
+    """Calculates the median of the values in the dic
+
+    Arguments:
+        dic {dict} -- assumed to be a dictionary where the values are numbers
+
+    Returns:
+        float|int -- the median value
+    """
+    values = list(dic.values())
+    values.sort()
+    medianIndex = int(len(values)/2)
+    median = values[medianIndex]
+    return median

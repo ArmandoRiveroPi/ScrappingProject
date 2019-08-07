@@ -4,3 +4,10 @@
 
 # Office crap
 .~lock*
+
+# Vue and Node stuff
+*/friend-finder
+*/node_modules*
+
+# General stuff
+*.zip
