@@ -1,5 +1,10 @@
 <template>
-  <div class="ads-list"></div>
+  <div class="ads-list">
+    <div v-for="ad in ads" :key="ad.title">
+      <h2>{{ad.title}}</h2>
+      <p>{{ad.content}}</p>
+    </div>
+  </div>
 </template>
 
 <script>
