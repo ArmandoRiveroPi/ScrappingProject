@@ -5,4 +5,4 @@ webDB = WebDataBase()
 trainDB = DataBase()
 migrator = WebDataBaseMigrator(trainDB, webDB)
 
-migrator.migrate_ads(20)
+migrator.migrate_ads(100)
