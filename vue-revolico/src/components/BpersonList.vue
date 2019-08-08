@@ -1,37 +1,36 @@
 <template>
   <div class="b-person-list">
-    <ad-list-element v-for="ad in ads" :key="ad.title" :ad="ad"></ad-list-element>
+    <bperson-list-element v-for="bperson in bpersons" :key="bperson.name" :bperson="bperson"></bperson-list-element>
     <div class="clearfix"></div>
   </div>
 </template>
 
 <script>
 import { mapState } from "vuex";
-import AdListElement from "./AdListElement";
+import BpersonListElement from "./BpersonListElement";
 
 export default {
-  name: "AdsList",
+  name: "BpersonList",
   data() {
     return {
-      ads: []
+      bpersons: []
     };
   },
-
   components: {
-    AdListElement
+    BpersonListElement
   },
 
   computed: {
     ...mapState(["restApi"])
   },
   methods: {
-    getAdsData() {
-      return this.restApi.getData("ads/?page=1");
+    getBPersonsData() {
+      return this.restApi.getData("bpersons/");
     }
   },
   mounted() {
-    this.getAdsData().then(result => {
-      this.ads = result.results;
+    this.getBPersonsData().then(result => {
+      this.bpersons = result;
     });
   }
 };

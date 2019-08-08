@@ -4,16 +4,17 @@ from django.db import models
 
 
 class Ads(models.Model):
-    # title
+    ad_id = models.IntegerField(primary_key=True)
     title = models.CharField(max_length=500)
-    # ad content
     content = models.TextField()
+    phone = models.CharField(max_length=500)
 
     def __str__(self):
         return "{} - {}".format(self.title, self.content)
 
 
 class BPerson(models.Model):
+    bperson_id = models.IntegerField(primary_key=True)
     name = models.CharField(max_length=500)
     phone = models.CharField(max_length=500)
 

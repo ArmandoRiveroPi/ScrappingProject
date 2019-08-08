@@ -1,55 +1,31 @@
 <template>
   <div id="app">
-    <div>
-      Header
-      <nav>
-        <router-link to="/">Home</router-link>
-        <router-link to="/anuncios">Anuncios</router-link>
-      </nav>
-    </div>
+    <vue-header></vue-header>
     <router-view></router-view>
-    <div>Footer</div>
+    <vue-footer></vue-footer>
   </div>
 </template>
 
 <script>
 // import HelloWorld from "./components/HelloWorld.vue";
-import RestApi from "./classes/RestApi";
+import VueHeader from "./components/VueHeader";
+import VueFooter from "./components/VueFooter";
+import { mapState } from "vuex";
+
 export default {
   name: "app",
   components: {
-    // VueRouter
+    VueHeader,
+    VueFooter
   },
   data() {
     return {
-      restApi: new RestApi("http://localhost:8000/api/v1/"),
       ads: [],
       bpersons: []
     };
   },
   computed: {
-    // ads() {
-    //   let ads = this.restApi.getData("ads/");
-    //   console.log(ads);
-    //   return ads; //this.restApi.getData("ads/");
-    // }
-  },
-  methods: {
-    getAdsData() {
-      return this.restApi.getData("ads/");
-    },
-    getBPersonsData() {
-      return this.restApi.getData("bpersons/");
-    }
-  },
-
-  mounted() {
-    this.getAdsData().then(result => {
-      this.ads = result;
-    });
-    this.getBPersonsData().then(result => {
-      this.bpersons = result;
-    });
+    ...mapState(["restApi"])
   }
 };
 </script>
@@ -60,9 +36,7 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
-}
-.router-link-active {
-  margin-right: 10px;
+  /* margin-top: 60px; */
+  min-height: 1000px;
 }
 </style>

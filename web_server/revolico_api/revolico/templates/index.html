@@ -21,10 +21,15 @@
       >
     </noscript>
     <div id="app"></div>
+
+    <div id="spinner-wrapper">
+      <div class="spinner"></div>
+    </div>
+
     <!-- built files will be auto injected -->
     {% render_bundle 'app' %}
 
-      <script src="{% static "js/jquery-3.1.1.min.js" %}"></script>
+    <script src="{% static "js/jquery-3.1.1.min.js" %}"></script>
     <script src="{% static "js/bootstrap.min.js" %}"></script>
     <script src="{% static "js/jquery.appear.min.js" %}"></script>
 		<script src="{% static "js/jquery.incremental-counter.js" %}"></script>

@@ -5,7 +5,7 @@ from .models import Ads, BPerson
 class AdsSerializer(serializers.ModelSerializer):
     class Meta:
         model = Ads
-        fields = ("title", "content")
+        fields = ("title", "content", "phone")
 
 
 class BPersonSerializer(serializers.ModelSerializer):
