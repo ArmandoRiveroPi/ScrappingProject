@@ -26,7 +26,11 @@
           </div>
           <div class="line-divider"></div>
           <div class="post-text">
-            <p>{{ ad.content }}</p>
+            <p
+              class="content-parag"
+              v-for="parag in contentParagraphs(ad.content)"
+              :key="parag"
+            >{{ parag }}</p>
           </div>
           <div class="line-divider"></div>
         </div>
@@ -38,10 +42,19 @@
 <script>
 export default {
   name: "AdListElement",
-  props: ["ad"]
+  props: ["ad"],
+  methods: {
+    contentParagraphs(content) {
+      return content.split("\n");
+    }
+  }
 };
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.content-parag {
+  /* text-align: justify; */
+  margin-bottom: 0;
+}
 </style>

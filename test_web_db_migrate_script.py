@@ -5,4 +5,6 @@ webDB = WebDataBase()
 trainDB = DataBase()
 migrator = WebDataBaseMigrator(trainDB, webDB)
 
-migrator.migrate_ads(100)
+migrator.migrate_ads(1000)
+
+migrator.build_bpersons()
