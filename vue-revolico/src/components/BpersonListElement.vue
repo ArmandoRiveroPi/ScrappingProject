@@ -1,5 +1,5 @@
 <template>
-  <div class="col-md-7">
+  <div class="bperson-element col-md-7" v-if="bperson.name">
     <div class="post-content">
       <div class="post-container">
         <img
@@ -16,14 +16,7 @@
             </h5>
             <p class="text-muted">Published a photo about 3 mins ago</p>
           </div>
-          <div class="reaction">
-            <a class="btn text-green">
-              <i class="icon ion-thumbsup"></i> 13
-            </a>
-            <a class="btn text-red">
-              <i class="fa fa-thumbs-down"></i> 0
-            </a>
-          </div>
+          <user-reactions></user-reactions>
           <div class="line-divider"></div>
           <div class="post-text">
             <p>{{ bperson.phone }}</p>
@@ -36,12 +29,21 @@
 </template>
 
 <script>
+import UserReactions from "./UserReactions";
+
 export default {
   name: "BpersonListElement",
-  props: ["bperson"]
+  props: ["bperson"],
+  components: {
+    UserReactions
+  }
 };
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.bperson-element {
+  margin-left: auto;
+  margin-right: auto;
+}
 </style>

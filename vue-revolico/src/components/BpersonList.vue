@@ -1,7 +1,19 @@
 <template>
-  <div class="b-person-list">
-    <bperson-list-element v-for="bperson in bpersons" :key="bperson.name" :bperson="bperson"></bperson-list-element>
-    <div class="clearfix"></div>
+  <div>
+    <div class="bperson-list">
+      <bperson-list-element
+        v-for="bperson in bpersons"
+        :key="bperson.bperson_id"
+        :bperson="bperson"
+      ></bperson-list-element>
+      <div class="clearfix"></div>
+    </div>
+    <div
+      class="infinite-scroll"
+      v-infinite-scroll="loadInfinite"
+      infinite-scroll-disabled="busy"
+      infinite-scroll-distance="10"
+    ></div>
   </div>
 </template>
 
@@ -13,9 +25,12 @@ export default {
   name: "BpersonList",
   data() {
     return {
-      bpersons: []
+      bpersons: [],
+      page: 1,
+      busy: false
     };
   },
+
   components: {
     BpersonListElement
   },
@@ -24,13 +39,23 @@ export default {
     ...mapState(["restApi"])
   },
   methods: {
-    getBPersonsData() {
-      return this.restApi.getData("bpersons/");
+    getAdsData() {
+      return this.restApi.getData("bpersons/?page=" + this.page);
+    },
+    loadInfinite() {
+      this.busy = true;
+      this.page++;
+      setTimeout(() => {
+        this.getAdsData().then(result => {
+          this.bpersons = this.bpersons.concat(result.results);
+        });
+        this.busy = false;
+      }, 1000);
     }
   },
   mounted() {
-    this.getBPersonsData().then(result => {
-      this.bpersons = result;
+    this.getAdsData().then(result => {
+      this.bpersons = result.results;
     });
   }
 };
@@ -38,4 +63,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.bperson-list {
+  text-align: left;
+}
 </style>

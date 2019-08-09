@@ -14,16 +14,12 @@
               <a href="timeline.html" class="profile-link">{{ ad.title }}</a>
               <span class="following"></span>
             </h5>
-            <p class="text-muted">{{ ad.phone }} - 3 mins ago</p>
+            <p class="text-muted">
+              {{ ad.phone }} -
+              <relative-time :datetime="ad.datetime"></relative-time>
+            </p>
           </div>
-          <div class="reaction">
-            <a class="btn text-green">
-              <i class="icon ion-thumbsup"></i> 13
-            </a>
-            <a class="btn text-red">
-              <i class="fa fa-thumbs-down"></i> 0
-            </a>
-          </div>
+          <user-reactions></user-reactions>
           <div class="line-divider"></div>
           <div class="post-text">
             <p
@@ -40,9 +36,16 @@
 </template>
 
 <script>
+import UserReactions from "./UserReactions";
+import RelativeTime from "./RelativeTime";
+
 export default {
   name: "AdListElement",
   props: ["ad"],
+  components: {
+    UserReactions,
+    RelativeTime
+  },
   methods: {
     contentParagraphs(content) {
       return content.split("\n");
