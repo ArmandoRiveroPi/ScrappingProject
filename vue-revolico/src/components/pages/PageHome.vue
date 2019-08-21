@@ -18,8 +18,11 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.home-page {
+  margin-top: 80px;
+}
 h1 {
   text-align: left;
-  margin-left: 30px;
+  margin-left: 95px;
 }
 </style>

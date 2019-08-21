@@ -15,6 +15,7 @@
               <span class="following"></span>
             </h5>
             <p class="text-muted">
+              <span class="bperson-name" v-if="ad.bperson_name">{{ ad.bperson_name }}</span>
               {{ ad.phone }} -
               <relative-time :datetime="ad.datetime"></relative-time>
             </p>
@@ -51,6 +52,9 @@ export default {
       return content.split("\n");
     }
   }
+  // mounted() {
+  //   console.log(this.ad);
+  // }
 };
 </script>
 
@@ -59,5 +63,10 @@ export default {
 .content-parag {
   /* text-align: justify; */
   margin-bottom: 0;
+}
+
+.bperson-name {
+  margin-right: 5px;
+  color: black;
 }
 </style>

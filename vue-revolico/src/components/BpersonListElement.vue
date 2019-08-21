@@ -14,7 +14,12 @@
               <a href="timeline.html" class="profile-link">{{ bperson.name }}</a>
               <span class="following">following</span>
             </h5>
-            <p class="text-muted">Published a photo about 3 mins ago</p>
+            <p class="text-muted">
+              <span
+                class="bperson-ads-amount"
+                v-if="bperson.ads_amount"
+              >{{ bperson.ads_amount }} anuncios</span>
+            </p>
           </div>
           <user-reactions></user-reactions>
           <div class="line-divider"></div>

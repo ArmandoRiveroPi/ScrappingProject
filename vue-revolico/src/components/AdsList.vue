@@ -9,7 +9,11 @@
       v-infinite-scroll="loadInfinite"
       infinite-scroll-disabled="busy"
       infinite-scroll-distance="10"
-    ></div>
+    >
+      <div v-if="busy" class="loading-signal">
+        <i class="fa fa-spinner fa-pulse fa-4x"></i>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -23,7 +27,8 @@ export default {
     return {
       ads: [],
       page: 1,
-      busy: false
+      busy: false,
+      limit: 1000
     };
   },
 
@@ -39,20 +44,23 @@ export default {
       return this.restApi.getData("ads/?page=" + this.page);
     },
     loadInfinite() {
-      this.busy = true;
-      this.page++;
-      setTimeout(() => {
-        this.getAdsData().then(result => {
-          this.ads = this.ads.concat(result.results);
-        });
-        this.busy = false;
-      }, 1000);
+      // Only update under certain amount of elements (limit)
+      if (this.ads.length < this.limit) {
+        this.busy = true;
+        this.page++;
+        setTimeout(() => {
+          this.getAdsData().then(result => {
+            this.ads = this.ads.concat(result.results);
+          });
+          this.busy = false;
+        }, 1000);
+      }
     }
   },
   mounted() {
-    this.getAdsData().then(result => {
-      this.ads = result.results;
-    });
+    // this.getAdsData().then(result => {
+    //   this.ads = result.results;
+    // });
   }
 };
 </script>

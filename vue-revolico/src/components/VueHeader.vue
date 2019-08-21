@@ -1,5 +1,5 @@
 <template>
-  <header id="header" class="lazy-load">
+  <header id="header">
     <nav class="navbar navbar-default navbar-fixed-top menu">
       <div class="container">
         <!-- Brand and toggle get grouped for better mobile display -->
@@ -53,4 +53,14 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+#header {
+  min-height: 0;
+}
+.navbar {
+  min-height: 0;
+  margin-top: 0;
+}
+#header > nav > div > div.navbar-header > a > img {
+  margin-top: 8px;
+}
 </style>

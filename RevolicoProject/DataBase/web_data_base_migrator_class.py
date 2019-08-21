@@ -1,7 +1,7 @@
 """This module is concerned with creating the webserver database
 from the model training data.
 
-Because of that, it depends both in knowing and probably connecting
+Because of that, it depends of knowing about and probably connecting
 with both databases.
 It should provide a web server database ready for the server to use.
 """

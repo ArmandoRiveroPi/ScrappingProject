@@ -13,7 +13,11 @@
       v-infinite-scroll="loadInfinite"
       infinite-scroll-disabled="busy"
       infinite-scroll-distance="10"
-    ></div>
+    >
+      <div v-if="busy" class="loading-signal">
+        <i class="fa fa-spinner fa-pulse fa-4x"></i>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -27,7 +31,8 @@ export default {
     return {
       bpersons: [],
       page: 1,
-      busy: false
+      busy: false,
+      limit: 1000
     };
   },
 
@@ -43,20 +48,23 @@ export default {
       return this.restApi.getData("bpersons/?page=" + this.page);
     },
     loadInfinite() {
-      this.busy = true;
-      this.page++;
-      setTimeout(() => {
-        this.getAdsData().then(result => {
-          this.bpersons = this.bpersons.concat(result.results);
-        });
-        this.busy = false;
-      }, 1000);
+      // Only update under certain amount of elements
+      if (this.bpersons.length < this.limit) {
+        this.busy = true;
+        this.page++;
+        setTimeout(() => {
+          this.getAdsData().then(result => {
+            this.bpersons = this.bpersons.concat(result.results);
+          });
+          this.busy = false;
+        }, 1000);
+      }
     }
   },
   mounted() {
-    this.getAdsData().then(result => {
-      this.bpersons = result.results;
-    });
+    // this.getAdsData().then(result => {
+    //   this.bpersons = result.results;
+    // });
   }
 };
 </script>
@@ -65,5 +73,8 @@ export default {
 <style scoped>
 .bperson-list {
   text-align: left;
+}
+.infinite-scroll {
+  margin-bottom: 20px;
 }
 </style>
