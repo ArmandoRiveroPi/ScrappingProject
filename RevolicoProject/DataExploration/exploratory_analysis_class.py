@@ -46,5 +46,14 @@ class ExploratoryAnalysis(object):
             stats.append(statistics)
         return pd.DataFrame(stats)
 
-    def correlation_measures(self, columns=None):
-        pass
+    def correlation_measures(self, group='ALL'):
+        methods = ['pearson', 'spearman', 'kendall']
+        cols = [str(col) for i, col in enumerate(self.data.columns)]
+        allCorr = pd.DataFrame()
+        for ind, method in enumerate(methods):
+            correlation = self.data.corr(method=method)
+            subDic = {col: col + "_" + method for col in cols}
+            correlation.rename(index=subDic, inplace=True)
+            allCorr = pd.concat([allCorr, correlation])
+        allCorr['group'] = group
+        return allCorr
