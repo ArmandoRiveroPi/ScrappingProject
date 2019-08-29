@@ -1,4 +1,5 @@
-from RevolicoProject.Statistics import mean, median
+# from RevolicoProject.Statistics import mean, median
+from RevolicoProject.DataExploration import ExploratoryAnalysis
 import numpy as np
 from scipy import stats
 import pandas as pd
@@ -72,7 +73,7 @@ def filter_prices(strPrices):
 
 
 def get_first_classification(classification: str):
-    return classification.split(',')[0]
+    return classification.split(',')[0].strip(' >')
 
 
 def get_prices_from_df(df, deviations=1000):
@@ -82,24 +83,57 @@ def get_prices_from_df(df, deviations=1000):
     return prices
 
 
-dataFile = '/home/gauss/arm/importante/work/ai/projects/revolico/clean_data/ads_dump.csv'
+def get_df_for_stats(rawData: pd.DataFrame):
+    data = pd.DataFrame()
+    data['price'] = rawData['price'].copy()
+    data['time'] = rawData['datetime'].copy()
+    return data
+
+
+def recalculate_prices(strPrice):
+    if not isinstance(strPrice, str):
+        price = np.nan
+    else:
+        price = float(re.sub('[a-z,]', "", strPrice))
+    return price
+
+
+dataFile = '/home/gauss/arm/importante/work/ai/projects/revolico/clean_data/ads_dump1.csv'
 
 df = pd.read_csv(dataFile)  # [0:10000]
 df['classification'] = df['classification'].apply(
     lambda x: get_first_classification(x))
 
-# GENERAL STATISTICS -------------
-# strPrices = df['price'].tolist()
-# prices = filter_prices(strPrices)
-# prices = remove_outliers_robust(prices, deviations=1000)
-prices = get_prices_from_df(df)
-print('Prices Len', len(prices))
-print_stats(prices)
 
-# WORKING WITH GROUPS ----------------
+# GROUPS STATISTICS ----------------
 groups = df.groupby('classification')
 print('Groups', len(groups))
-for group in groups:
-    print('Group =============> ', group[0])
+count = 1
+groupStats = []
+for count, group in enumerate(groups):
+    # print(count, 'Group =============> ', group[0])
     prices = get_prices_from_df(group[1], deviations=100)
-    print_stats(prices)
+    data = pd.DataFrame({"prices": prices})
+    Explorer = ExploratoryAnalysis(data)
+    statistics = Explorer.column_statistics('prices')
+    statistics['group'] = group[0]
+    groupStats.append(statistics)
+print_stats(prices)
+
+
+# GENERAL STATISTICS -------------
+# prices = get_prices_from_df(df)
+# data = pd.DataFrame({"prices": prices})
+data = pd.DataFrame()
+data['prices'] = df['price'].copy()
+data['prices'].apply(recalculate_prices)
+
+Explorer = ExploratoryAnalysis(data)
+statistics = Explorer.column_statistics('prices')
+statistics['group'] = 'ALL'
+groupStats.append(statistics)
+
+# SAVE ALL THE STATISTICS ---------
+results = pd.DataFrame(groupStats)
+results.to_csv('ExpStats.csv')
+print(results)

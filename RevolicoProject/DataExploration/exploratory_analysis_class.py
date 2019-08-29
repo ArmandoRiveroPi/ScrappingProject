@@ -18,6 +18,33 @@ class ExploratoryAnalysis(object):
 
     def __init__(self, data: pd.DataFrame):
         self.data = data
+        self.stats = ExploratoryStatistics()
+        self.viz = ExploratoryVisualization()
 
-    def build_(self, parameter_list):
+    # ------- CLEANING SECTION -------------
+
+    def clean(self):
+        pass
+
+    def remove_outliers(self):
+        pass
+
+    def fix_missing_data(self):
+        pass
+
+    # ----- STATISTICS SECTION ------
+    def column_statistics(self, column):
+        return self.stats.get_statistics(self.data[column])
+
+    def all_column_stats(self, group='ALL'):
+        stats = []
+        cols = [str(col) for col in self.data.columns]
+        for col in cols:
+            statistics = self.column_statistics(col)
+            statistics['variable'] = col
+            statistics['group'] = group
+            stats.append(statistics)
+        return pd.DataFrame(stats)
+
+    def correlation_measures(self, columns=None):
         pass

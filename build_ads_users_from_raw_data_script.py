@@ -8,6 +8,11 @@ start = time.time()
 
 
 def build_subchunk(args):
+    """This is for parallelization purposes
+
+    Arguments:
+        args {[type]} -- [description]
+    """
     baseFolder = args[2]
     rawData = RawDataProvider(baseFolder)
     rawData.get_file_names()
@@ -24,6 +29,17 @@ def build_subchunk(args):
 
 # end, scrapper, preprocessor, writer
 def subchunk_args_array(cores, start, end, baseFolder):
+    """This is for parallelization purposes
+
+    Arguments:
+        cores {[type]} -- [description]
+        start {[type]} -- [description]
+        end {[type]} -- [description]
+        baseFolder {[type]} -- [description]
+
+    Returns:
+        [type] -- [description]
+    """
     total = end - start
     subchunkSize = math.ceil(total/cores)
     argsArray = [
@@ -54,13 +70,15 @@ db.create_tables()
 # writer = AdsDBWriter(db)
 usersB = UsersBuilder(db)
 
+
 # Process data by chunks and in parallel
 cores = 2
 subChunkSize = 200
 chunkSize = cores * subChunkSize
 totalChunks = int(fileAmount / chunkSize) + 1
-firstChunk = 92
+firstChunk = 0
 with Pool(processes=cores) as pool:
+    print('Chunks', totalChunks)
     for chunk in range(firstChunk, totalChunks):
         startTime = time.time()
         startChunk = chunk * chunkSize
