@@ -1,343 +1,343 @@
-,price,hour,weekday,group
-price_pearson,1.0,-0.003863264353471225,-0.007440019174358938,ALL
-hour_pearson,-0.003863264353471225,1.0,-0.11841767293309226,ALL
-weekday_pearson,-0.007440019174358938,-0.11841767293309226,1.0,ALL
-price_spearman,1.0,0.04704671726541126,-0.05154201877135013,ALL
-hour_spearman,0.04704671726541126,1.0,-0.1347754321654267,ALL
-weekday_spearman,-0.05154201877135013,-0.1347754321654267,1.0,ALL
-price_kendall,1.0,0.03286013956133732,-0.038187582717336195,ALL
-hour_kendall,0.03286013956133732,1.0,-0.10228525867603114,ALL
-weekday_kendall,-0.038187582717336195,-0.10228525867603114,1.0,ALL
-price_pearson,1.0,-0.032418550239792475,0.05238280057546595,autos >> alquiler
-hour_pearson,-0.032418550239792475,1.0,0.0745096450896077,autos >> alquiler
-weekday_pearson,0.05238280057546595,0.0745096450896077,1.0,autos >> alquiler
-price_spearman,1.0,0.014527721956274916,0.0037076421909520165,autos >> alquiler
-hour_spearman,0.014527721956274916,1.0,0.07245437172365438,autos >> alquiler
-weekday_spearman,0.0037076421909520165,0.07245437172365438,1.0,autos >> alquiler
-price_kendall,1.0,0.011194423453694834,0.0028152488869622786,autos >> alquiler
-hour_kendall,0.011194423453694834,1.0,0.05359060607168602,autos >> alquiler
-weekday_kendall,0.0028152488869622786,0.05359060607168602,1.0,autos >> alquiler
-price_pearson,1.0,0.04126925773002698,0.03659703563039314,autos >> bicicletas
-hour_pearson,0.04126925773002698,1.0,0.014277816556549815,autos >> bicicletas
-weekday_pearson,0.03659703563039314,0.014277816556549815,1.0,autos >> bicicletas
-price_spearman,1.0,0.1134829775141744,0.02413633159919625,autos >> bicicletas
-hour_spearman,0.1134829775141744,1.0,0.002376996290994912,autos >> bicicletas
-weekday_spearman,0.02413633159919625,0.002376996290994912,1.0,autos >> bicicletas
-price_kendall,1.0,0.07970264269664541,0.017543248984524664,autos >> bicicletas
-hour_kendall,0.07970264269664541,1.0,0.0018033070002787975,autos >> bicicletas
-weekday_kendall,0.017543248984524664,0.0018033070002787975,1.0,autos >> bicicletas
-price_pearson,1.0,0.045250909409700994,0.02731419590632099,autos >> carros
-hour_pearson,0.045250909409700994,1.0,-0.13751345790233335,autos >> carros
-weekday_pearson,0.02731419590632099,-0.13751345790233335,1.0,autos >> carros
-price_spearman,1.0,-0.06860911977478897,-0.15291272888291393,autos >> carros
-hour_spearman,-0.06860911977478897,1.0,-0.1435667027622536,autos >> carros
-weekday_spearman,-0.15291272888291393,-0.1435667027622536,1.0,autos >> carros
-price_kendall,1.0,-0.04715272830739125,-0.11901673379893367,autos >> carros
-hour_kendall,-0.04715272830739125,1.0,-0.11831183158817314,autos >> carros
-weekday_kendall,-0.11901673379893367,-0.11831183158817314,1.0,autos >> carros
-price_pearson,1.0,-0.03034648940520988,0.03550432730221148,autos >> mecánico
-hour_pearson,-0.03034648940520988,1.0,0.04098292609272127,autos >> mecánico
-weekday_pearson,0.03550432730221148,0.04098292609272127,1.0,autos >> mecánico
-price_spearman,1.0,0.04588249480097209,0.10914429117171223,autos >> mecánico
-hour_spearman,0.04588249480097209,1.0,0.05105774681951772,autos >> mecánico
-weekday_spearman,0.10914429117171223,0.05105774681951772,1.0,autos >> mecánico
-price_kendall,1.0,0.034246240452665874,0.07911432941019797,autos >> mecánico
-hour_kendall,0.034246240452665874,1.0,0.0366060331436475,autos >> mecánico
-weekday_kendall,0.07911432941019797,0.0366060331436475,1.0,autos >> mecánico
-price_pearson,1.0,0.038656433703022124,-0.01089391329728707,autos >> motos
-hour_pearson,0.038656433703022124,1.0,-0.4313904591596487,autos >> motos
-weekday_pearson,-0.01089391329728707,-0.4313904591596487,1.0,autos >> motos
-price_spearman,1.0,0.12584083395193926,-0.012757050464107463,autos >> motos
-hour_spearman,0.12584083395193926,1.0,-0.3678926900448867,autos >> motos
-weekday_spearman,-0.012757050464107463,-0.3678926900448867,1.0,autos >> motos
-price_kendall,1.0,0.08772038685128972,-0.009690750617866357,autos >> motos
-hour_kendall,0.08772038685128972,1.0,-0.3049979011741953,autos >> motos
-weekday_kendall,-0.009690750617866357,-0.3049979011741953,1.0,autos >> motos
-price_pearson,1.0,0.04038483888506902,-0.012255881034743473,autos >> otros
-hour_pearson,0.04038483888506902,1.0,0.0014292075609403092,autos >> otros
-weekday_pearson,-0.012255881034743473,0.0014292075609403092,1.0,autos >> otros
-price_spearman,1.0,0.07577441368853542,0.060756179628552696,autos >> otros
-hour_spearman,0.07577441368853542,1.0,0.0029418813615005195,autos >> otros
-weekday_spearman,0.060756179628552696,0.0029418813615005195,1.0,autos >> otros
-price_kendall,1.0,0.053425982409466104,0.04460218262054234,autos >> otros
-hour_kendall,0.053425982409466104,1.0,0.001781790288344474,autos >> otros
-weekday_kendall,0.04460218262054234,0.001781790288344474,1.0,autos >> otros
-price_pearson,1.0,0.02769711507549947,-0.00913844359721136,autos >> piezas/accesorios
-hour_pearson,0.02769711507549947,1.0,-0.7564131612330682,autos >> piezas/accesorios
-weekday_pearson,-0.00913844359721136,-0.7564131612330682,1.0,autos >> piezas/accesorios
-price_spearman,1.0,-0.0009992625126929546,-0.056930734309337275,autos >> piezas/accesorios
-hour_spearman,-0.0009992625126929546,1.0,-0.5336539804606484,autos >> piezas/accesorios
-weekday_spearman,-0.056930734309337275,-0.5336539804606484,1.0,autos >> piezas/accesorios
-price_kendall,1.0,-0.0009967650963130974,-0.047127905339127106,autos >> piezas/accesorios
-hour_kendall,-0.0009967650963130974,1.0,-0.454471748077349,autos >> piezas/accesorios
-weekday_kendall,-0.047127905339127106,-0.454471748077349,1.0,autos >> piezas/accesorios
-price_pearson,1.0,-0.03753549416643284,0.0354875361700666,compra / venta >> aire acondicionado
-hour_pearson,-0.03753549416643284,1.0,0.07978777570914629,compra / venta >> aire acondicionado
-weekday_pearson,0.0354875361700666,0.07978777570914629,1.0,compra / venta >> aire acondicionado
-price_spearman,1.0,0.05458107976422716,-0.03529714332006661,compra / venta >> aire acondicionado
-hour_spearman,0.05458107976422716,1.0,0.0009657494936942373,compra / venta >> aire acondicionado
-weekday_spearman,-0.03529714332006661,0.0009657494936942373,1.0,compra / venta >> aire acondicionado
-price_kendall,1.0,0.038364745683403485,-0.027121921230658538,compra / venta >> aire acondicionado
-hour_kendall,0.038364745683403485,1.0,-0.0028771509919931037,compra / venta >> aire acondicionado
-weekday_kendall,-0.027121921230658538,-0.0028771509919931037,1.0,compra / venta >> aire acondicionado
-price_pearson,1.0,-0.009095346868904496,0.03125169266810801,compra / venta >> antiguedades/colección
-hour_pearson,-0.009095346868904496,1.0,-0.1781207592702775,compra / venta >> antiguedades/colección
-weekday_pearson,0.03125169266810801,-0.1781207592702775,1.0,compra / venta >> antiguedades/colección
-price_spearman,1.0,0.016758172408766665,0.00891915431028218,compra / venta >> antiguedades/colección
-hour_spearman,0.016758172408766665,1.0,-0.16302160671221405,compra / venta >> antiguedades/colección
-weekday_spearman,0.00891915431028218,-0.16302160671221405,1.0,compra / venta >> antiguedades/colección
-price_kendall,1.0,0.012291773286280026,0.006744022985715917,compra / venta >> antiguedades/colección
-hour_kendall,0.012291773286280026,1.0,-0.12354968378935469,compra / venta >> antiguedades/colección
-weekday_kendall,0.006744022985715917,-0.12354968378935469,1.0,compra / venta >> antiguedades/colección
-price_pearson,1.0,-0.06329089442723985,-0.042274538012378814,compra / venta >> arte
-hour_pearson,-0.06329089442723985,1.0,0.0162697505017457,compra / venta >> arte
-weekday_pearson,-0.042274538012378814,0.0162697505017457,1.0,compra / venta >> arte
-price_spearman,1.0,0.05876482434511155,0.013983675258713264,compra / venta >> arte
-hour_spearman,0.05876482434511155,1.0,0.012800958371126636,compra / venta >> arte
-weekday_spearman,0.013983675258713264,0.012800958371126636,1.0,compra / venta >> arte
-price_kendall,1.0,0.04104188691965389,0.009792088671715162,compra / venta >> arte
-hour_kendall,0.04104188691965389,1.0,0.010063509558121986,compra / venta >> arte
-weekday_kendall,0.009792088671715162,0.010063509558121986,1.0,compra / venta >> arte
-price_pearson,1.0,0.017671927275292123,-0.01956550220152934,compra / venta >> celulares/líneas/accesorios
-hour_pearson,0.017671927275292123,1.0,-0.6891853564882594,compra / venta >> celulares/líneas/accesorios
-weekday_pearson,-0.01956550220152934,-0.6891853564882594,1.0,compra / venta >> celulares/líneas/accesorios
-price_spearman,1.0,-0.01970666350012554,0.14169434099089112,compra / venta >> celulares/líneas/accesorios
-hour_spearman,-0.01970666350012554,1.0,-0.6043608867388103,compra / venta >> celulares/líneas/accesorios
-weekday_spearman,0.14169434099089112,-0.6043608867388103,1.0,compra / venta >> celulares/líneas/accesorios
-price_kendall,1.0,-0.015375449356630355,0.11296149399234787,compra / venta >> celulares/líneas/accesorios
-hour_kendall,-0.015375449356630355,1.0,-0.5265338128562442,compra / venta >> celulares/líneas/accesorios
-weekday_kendall,0.11296149399234787,-0.5265338128562442,1.0,compra / venta >> celulares/líneas/accesorios
-price_pearson,1.0,-0.008519631538926117,-0.022926794082068137,compra / venta >> consola videojuego/juegos
-hour_pearson,-0.008519631538926117,1.0,-0.001189424493685153,compra / venta >> consola videojuego/juegos
-weekday_pearson,-0.022926794082068137,-0.001189424493685153,1.0,compra / venta >> consola videojuego/juegos
-price_spearman,1.0,-0.029195403913437914,0.07981995537495391,compra / venta >> consola videojuego/juegos
-hour_spearman,-0.029195403913437914,1.0,-0.0026853366538308007,compra / venta >> consola videojuego/juegos
-weekday_spearman,0.07981995537495391,-0.0026853366538308007,1.0,compra / venta >> consola videojuego/juegos
-price_kendall,1.0,-0.019909389091815333,0.059774906482043505,compra / venta >> consola videojuego/juegos
-hour_kendall,-0.019909389091815333,1.0,0.00046600584649009186,compra / venta >> consola videojuego/juegos
-weekday_kendall,0.059774906482043505,0.00046600584649009186,1.0,compra / venta >> consola videojuego/juegos
-price_pearson,1.0,0.03780332084256889,-0.012683437309625175,compra / venta >> cámara foto/video
-hour_pearson,0.03780332084256889,1.0,-0.0067175317075700205,compra / venta >> cámara foto/video
-weekday_pearson,-0.012683437309625175,-0.0067175317075700205,1.0,compra / venta >> cámara foto/video
-price_spearman,1.0,0.08104552415732237,0.011292015051405884,compra / venta >> cámara foto/video
-hour_spearman,0.08104552415732237,1.0,-0.00491107840893306,compra / venta >> cámara foto/video
-weekday_spearman,0.011292015051405884,-0.00491107840893306,1.0,compra / venta >> cámara foto/video
-price_kendall,1.0,0.056131349445876076,0.008375325625210763,compra / venta >> cámara foto/video
-hour_kendall,0.056131349445876076,1.0,-0.004119459422458524,compra / venta >> cámara foto/video
-weekday_kendall,0.008375325625210763,-0.004119459422458524,1.0,compra / venta >> cámara foto/video
-price_pearson,1.0,0.049575363501004166,0.02490485057886379,compra / venta >> divisas
-hour_pearson,0.049575363501004166,1.0,-0.05563132485654758,compra / venta >> divisas
-weekday_pearson,0.02490485057886379,-0.05563132485654758,1.0,compra / venta >> divisas
-price_spearman,1.0,-0.06309006219148482,0.08540118759512506,compra / venta >> divisas
-hour_spearman,-0.06309006219148482,1.0,-0.06578290511420354,compra / venta >> divisas
-weekday_spearman,0.08540118759512506,-0.06578290511420354,1.0,compra / venta >> divisas
-price_kendall,1.0,-0.04503558809690503,0.0637971187231962,compra / venta >> divisas
-hour_kendall,-0.04503558809690503,1.0,-0.04805671482015579,compra / venta >> divisas
-weekday_kendall,0.0637971187231962,-0.04805671482015579,1.0,compra / venta >> divisas
-price_pearson,1.0,-0.08915660869568,0.07912649590007996,compra / venta >> electrodomésticos
-hour_pearson,-0.08915660869568,1.0,-0.9349106788682706,compra / venta >> electrodomésticos
-weekday_pearson,0.07912649590007996,-0.9349106788682706,1.0,compra / venta >> electrodomésticos
-price_spearman,1.0,-0.01685439015961791,0.03329853842794808,compra / venta >> electrodomésticos
-hour_spearman,-0.01685439015961791,1.0,-0.6245527047840507,compra / venta >> electrodomésticos
-weekday_spearman,0.03329853842794808,-0.6245527047840507,1.0,compra / venta >> electrodomésticos
-price_kendall,1.0,-0.012685122260756836,0.02744099075327703,compra / venta >> electrodomésticos
-hour_kendall,-0.012685122260756836,1.0,-0.5481305120109603,compra / venta >> electrodomésticos
-weekday_kendall,0.02744099075327703,-0.5481305120109603,1.0,compra / venta >> electrodomésticos
-price_pearson,1.0,-0.0009099355989729616,0.019712466654238474,compra / venta >> implementos deportivos
-hour_pearson,-0.0009099355989729616,1.0,-0.11924851342635631,compra / venta >> implementos deportivos
-weekday_pearson,0.019712466654238474,-0.11924851342635631,1.0,compra / venta >> implementos deportivos
-price_spearman,1.0,0.0036086878671752263,0.07607972881008616,compra / venta >> implementos deportivos
-hour_spearman,0.0036086878671752263,1.0,-0.12564502855934387,compra / venta >> implementos deportivos
-weekday_spearman,0.07607972881008616,-0.12564502855934387,1.0,compra / venta >> implementos deportivos
-price_kendall,1.0,0.002670896714673777,0.05664521024369668,compra / venta >> implementos deportivos
-hour_kendall,0.002670896714673777,1.0,-0.09177980398638827,compra / venta >> implementos deportivos
-weekday_kendall,0.05664521024369668,-0.09177980398638827,1.0,compra / venta >> implementos deportivos
-price_pearson,1.0,-0.012125177307516574,-0.03033269365164687,compra / venta >> intercambio/regalo
-hour_pearson,-0.012125177307516574,1.0,-0.026972520786110257,compra / venta >> intercambio/regalo
-weekday_pearson,-0.03033269365164687,-0.026972520786110257,1.0,compra / venta >> intercambio/regalo
-price_spearman,1.0,0.07211054005233623,-0.011626565777985338,compra / venta >> intercambio/regalo
-hour_spearman,0.07211054005233623,1.0,-0.025058082259743247,compra / venta >> intercambio/regalo
-weekday_spearman,-0.011626565777985338,-0.025058082259743247,1.0,compra / venta >> intercambio/regalo
-price_kendall,1.0,0.049655668901291784,-0.008078118171368425,compra / venta >> intercambio/regalo
-hour_kendall,0.049655668901291784,1.0,-0.019281890761672887,compra / venta >> intercambio/regalo
-weekday_kendall,-0.008078118171368425,-0.019281890761672887,1.0,compra / venta >> intercambio/regalo
-price_pearson,1.0,-0.03804097219927646,0.02303150500784909,compra / venta >> joyas/relojes
-hour_pearson,-0.03804097219927646,1.0,-0.06452085081526836,compra / venta >> joyas/relojes
-weekday_pearson,0.02303150500784909,-0.06452085081526836,1.0,compra / venta >> joyas/relojes
-price_spearman,1.0,0.04718445053026023,-0.0888029784156833,compra / venta >> joyas/relojes
-hour_spearman,0.04718445053026023,1.0,-0.07800585268885322,compra / venta >> joyas/relojes
-weekday_spearman,-0.0888029784156833,-0.07800585268885322,1.0,compra / venta >> joyas/relojes
-price_kendall,1.0,0.03548929157179006,-0.06520952241591312,compra / venta >> joyas/relojes
-hour_kendall,0.03548929157179006,1.0,-0.0584976845971907,compra / venta >> joyas/relojes
-weekday_kendall,-0.06520952241591312,-0.0584976845971907,1.0,compra / venta >> joyas/relojes
-price_pearson,1.0,0.054955670519469785,0.04227536843750838,compra / venta >> libros/revistas
-hour_pearson,0.054955670519469785,1.0,-0.06377610720137253,compra / venta >> libros/revistas
-weekday_pearson,0.04227536843750838,-0.06377610720137253,1.0,compra / venta >> libros/revistas
-price_spearman,1.0,0.01668807402893883,0.14383883752717666,compra / venta >> libros/revistas
-hour_spearman,0.01668807402893883,1.0,-0.04189157746054084,compra / venta >> libros/revistas
-weekday_spearman,0.14383883752717666,-0.04189157746054084,1.0,compra / venta >> libros/revistas
-price_kendall,1.0,0.015969009441931952,0.10826046832870229,compra / venta >> libros/revistas
-hour_kendall,0.015969009441931952,1.0,-0.03201244203393414,compra / venta >> libros/revistas
-weekday_kendall,0.10826046832870229,-0.03201244203393414,1.0,compra / venta >> libros/revistas
-price_pearson,1.0,-0.03540860791403544,-0.014270156353004458,compra / venta >> mascotas/animales
-hour_pearson,-0.03540860791403544,1.0,-0.007881194769926313,compra / venta >> mascotas/animales
-weekday_pearson,-0.014270156353004458,-0.007881194769926313,1.0,compra / venta >> mascotas/animales
-price_spearman,1.0,-0.004326911027750861,0.12886441410684096,compra / venta >> mascotas/animales
-hour_spearman,-0.004326911027750861,1.0,0.0048201027752805105,compra / venta >> mascotas/animales
-weekday_spearman,0.12886441410684096,0.0048201027752805105,1.0,compra / venta >> mascotas/animales
-price_kendall,1.0,-0.0014710143976205212,0.09598715315315581,compra / venta >> mascotas/animales
-hour_kendall,-0.0014710143976205212,1.0,0.0036497847805681983,compra / venta >> mascotas/animales
-weekday_kendall,0.09598715315315581,0.0036497847805681983,1.0,compra / venta >> mascotas/animales
-price_pearson,1.0,0.030450561453700713,0.022851236081172465,compra / venta >> muebles/decoración
-hour_pearson,0.030450561453700713,1.0,0.17612786421439056,compra / venta >> muebles/decoración
-weekday_pearson,0.022851236081172465,0.17612786421439056,1.0,compra / venta >> muebles/decoración
-price_spearman,1.0,0.07385072196040542,0.008845616110955152,compra / venta >> muebles/decoración
-hour_spearman,0.07385072196040542,1.0,0.1074292319439831,compra / venta >> muebles/decoración
-weekday_spearman,0.008845616110955152,0.1074292319439831,1.0,compra / venta >> muebles/decoración
-price_kendall,1.0,0.05220921915686955,0.0067244284976039105,compra / venta >> muebles/decoración
-hour_kendall,0.05220921915686955,1.0,0.08768780241520023,compra / venta >> muebles/decoración
-weekday_kendall,0.0067244284976039105,0.08768780241520023,1.0,compra / venta >> muebles/decoración
-price_pearson,1.0,-0.02254419845682389,0.04596259390547351,compra / venta >> otros
-hour_pearson,-0.02254419845682389,1.0,0.261259658490133,compra / venta >> otros
-weekday_pearson,0.04596259390547351,0.261259658490133,1.0,compra / venta >> otros
-price_spearman,1.0,0.0402215800159457,0.04336648666646945,compra / venta >> otros
-hour_spearman,0.0402215800159457,1.0,0.09588108271561041,compra / venta >> otros
-weekday_spearman,0.04336648666646945,0.09588108271561041,1.0,compra / venta >> otros
-price_kendall,1.0,0.02840910983760856,0.03548669628393461,compra / venta >> otros
-hour_kendall,0.02840910983760856,1.0,0.07608339920775263,compra / venta >> otros
-weekday_kendall,0.03548669628393461,0.07608339920775263,1.0,compra / venta >> otros
-price_pearson,1.0,-0.014231040793538065,-0.03766121817679818,compra / venta >> reproductor dvd/vcd/dvr
-hour_pearson,-0.014231040793538065,1.0,0.060542098548645604,compra / venta >> reproductor dvd/vcd/dvr
-weekday_pearson,-0.03766121817679818,0.060542098548645604,1.0,compra / venta >> reproductor dvd/vcd/dvr
-price_spearman,1.0,-0.02823374590548467,-0.09371306617950036,compra / venta >> reproductor dvd/vcd/dvr
-hour_spearman,-0.02823374590548467,1.0,0.06874275528094675,compra / venta >> reproductor dvd/vcd/dvr
-weekday_spearman,-0.09371306617950036,0.06874275528094675,1.0,compra / venta >> reproductor dvd/vcd/dvr
-price_kendall,1.0,-0.019539992473529222,-0.068943119249332,compra / venta >> reproductor dvd/vcd/dvr
-hour_kendall,-0.019539992473529222,1.0,0.04982972203597492,compra / venta >> reproductor dvd/vcd/dvr
-weekday_kendall,-0.068943119249332,0.04982972203597492,1.0,compra / venta >> reproductor dvd/vcd/dvr
-price_pearson,1.0,0.013153647323715325,0.02038380363753017,compra / venta >> reproductor mp3/mp4/ipod
-hour_pearson,0.013153647323715325,1.0,-0.010178283619207473,compra / venta >> reproductor mp3/mp4/ipod
-weekday_pearson,0.02038380363753017,-0.010178283619207473,1.0,compra / venta >> reproductor mp3/mp4/ipod
-price_spearman,1.0,0.010904597399524705,0.005147581664028595,compra / venta >> reproductor mp3/mp4/ipod
-hour_spearman,0.010904597399524705,1.0,-0.005944297903564238,compra / venta >> reproductor mp3/mp4/ipod
-weekday_spearman,0.005147581664028595,-0.005944297903564238,1.0,compra / venta >> reproductor mp3/mp4/ipod
-price_kendall,1.0,0.00766530051239017,0.0037669986545202185,compra / venta >> reproductor mp3/mp4/ipod
-hour_kendall,0.00766530051239017,1.0,-0.00514302377376696,compra / venta >> reproductor mp3/mp4/ipod
-weekday_kendall,0.0037669986545202185,-0.00514302377376696,1.0,compra / venta >> reproductor mp3/mp4/ipod
-price_pearson,1.0,0.0181588372345829,0.11297675731785935,compra / venta >> ropa/zapato/accesorios
-hour_pearson,0.0181588372345829,1.0,-0.27886266946938937,compra / venta >> ropa/zapato/accesorios
-weekday_pearson,0.11297675731785935,-0.27886266946938937,1.0,compra / venta >> ropa/zapato/accesorios
-price_spearman,1.0,8.716002564038216e-05,0.16620958350356477,compra / venta >> ropa/zapato/accesorios
-hour_spearman,8.716002564038216e-05,1.0,-0.27824376363605124,compra / venta >> ropa/zapato/accesorios
-weekday_spearman,0.16620958350356477,-0.27824376363605124,1.0,compra / venta >> ropa/zapato/accesorios
-price_kendall,1.0,0.0008655239731871561,0.1355248452903754,compra / venta >> ropa/zapato/accesorios
-hour_kendall,0.0008655239731871561,1.0,-0.23170531885888795,compra / venta >> ropa/zapato/accesorios
-weekday_kendall,0.1355248452903754,-0.23170531885888795,1.0,compra / venta >> ropa/zapato/accesorios
-price_pearson,1.0,-0.016177623207767635,-0.05315219017702568,compra / venta >> satélite
-hour_pearson,-0.016177623207767635,1.0,-0.025321485787226275,compra / venta >> satélite
-weekday_pearson,-0.05315219017702568,-0.025321485787226275,1.0,compra / venta >> satélite
-price_spearman,1.0,-0.01805381891029099,-0.008437271365349917,compra / venta >> satélite
-hour_spearman,-0.01805381891029099,1.0,-0.01808954348905229,compra / venta >> satélite
-weekday_spearman,-0.008437271365349917,-0.01808954348905229,1.0,compra / venta >> satélite
-price_kendall,1.0,-0.012055285053858245,-0.005238784934492042,compra / venta >> satélite
-hour_kendall,-0.012055285053858245,1.0,-0.014363653122956378,compra / venta >> satélite
-weekday_kendall,-0.005238784934492042,-0.014363653122956378,1.0,compra / venta >> satélite
-price_pearson,1.0,-0.01375919472722105,-0.019906687341337582,compra / venta >> televisor
-hour_pearson,-0.01375919472722105,1.0,0.15252203118306576,compra / venta >> televisor
-weekday_pearson,-0.019906687341337582,0.15252203118306576,1.0,compra / venta >> televisor
-price_spearman,1.0,0.010177420726770744,0.0641007894487533,compra / venta >> televisor
-hour_spearman,0.010177420726770744,1.0,0.0814074142765301,compra / venta >> televisor
-weekday_spearman,0.0641007894487533,0.0814074142765301,1.0,compra / venta >> televisor
-price_kendall,1.0,0.007684534472191327,0.05070480391744764,compra / venta >> televisor
-hour_kendall,0.007684534472191327,1.0,0.06535096617097902,compra / venta >> televisor
-weekday_kendall,0.05070480391744764,0.06535096617097902,1.0,compra / venta >> televisor
-price_pearson,1.0,-0.017924072950887143,0.05295526729334588,computadoras >> backup/ups
-hour_pearson,-0.017924072950887143,1.0,-0.058739159132637594,computadoras >> backup/ups
-weekday_pearson,0.05295526729334588,-0.058739159132637594,1.0,computadoras >> backup/ups
-price_spearman,1.0,-0.06176759551064468,0.10199850883192037,computadoras >> backup/ups
-hour_spearman,-0.06176759551064468,1.0,-0.06024604497526519,computadoras >> backup/ups
-weekday_spearman,0.10199850883192037,-0.06024604497526519,1.0,computadoras >> backup/ups
-price_kendall,1.0,-0.04557358947727479,0.07385193070224913,computadoras >> backup/ups
-hour_kendall,-0.04557358947727479,1.0,-0.04569075452804106,computadoras >> backup/ups
-weekday_kendall,0.07385193070224913,-0.04569075452804106,1.0,computadoras >> backup/ups
-price_pearson,1.0,0.0930832694373343,-0.007053094727555109,computadoras >> cd/dvd virgen
-hour_pearson,0.0930832694373343,1.0,0.0013889875227463572,computadoras >> cd/dvd virgen
-weekday_pearson,-0.007053094727555109,0.0013889875227463572,1.0,computadoras >> cd/dvd virgen
-price_spearman,1.0,0.05078236480906456,0.09920664696470546,computadoras >> cd/dvd virgen
-hour_spearman,0.05078236480906456,1.0,0.019451074603335353,computadoras >> cd/dvd virgen
-weekday_spearman,0.09920664696470546,0.019451074603335353,1.0,computadoras >> cd/dvd virgen
-price_kendall,1.0,0.03763816008551039,0.07393418086168435,computadoras >> cd/dvd virgen
-hour_kendall,0.03763816008551039,1.0,0.014220952873141953,computadoras >> cd/dvd virgen
-weekday_kendall,0.07393418086168435,0.014220952873141953,1.0,computadoras >> cd/dvd virgen
-price_pearson,1.0,0.018152267016877655,-0.03481668421226593,computadoras >> chasis/fuente
-hour_pearson,0.018152267016877655,1.0,-0.13722617065638743,computadoras >> chasis/fuente
-weekday_pearson,-0.03481668421226593,-0.13722617065638743,1.0,computadoras >> chasis/fuente
-price_spearman,1.0,0.08054788616080079,-0.05493155601308423,computadoras >> chasis/fuente
-hour_spearman,0.08054788616080079,1.0,-0.16043045465313507,computadoras >> chasis/fuente
-weekday_spearman,-0.05493155601308423,-0.16043045465313507,1.0,computadoras >> chasis/fuente
-price_kendall,1.0,0.05584625106325557,-0.04260727244783868,computadoras >> chasis/fuente
-hour_kendall,0.05584625106325557,1.0,-0.12430256176030605,computadoras >> chasis/fuente
-weekday_kendall,-0.04260727244783868,-0.12430256176030605,1.0,computadoras >> chasis/fuente
-price_pearson,1.0,0.026562396891058174,-0.014033792140561767,computadoras >> disco duro interno/externo
-hour_pearson,0.026562396891058174,1.0,-0.5619674498816177,computadoras >> disco duro interno/externo
-weekday_pearson,-0.014033792140561767,-0.5619674498816177,1.0,computadoras >> disco duro interno/externo
-price_spearman,1.0,0.08494959108978818,-0.0667464971044952,computadoras >> disco duro interno/externo
-hour_spearman,0.08494959108978818,1.0,-0.6412338644988744,computadoras >> disco duro interno/externo
-weekday_spearman,-0.0667464971044952,-0.6412338644988744,1.0,computadoras >> disco duro interno/externo
-price_kendall,1.0,0.059789733367083785,-0.0550714825311254,computadoras >> disco duro interno/externo
-hour_kendall,0.059789733367083785,1.0,-0.5239834932379317,computadoras >> disco duro interno/externo
-weekday_kendall,-0.0550714825311254,-0.5239834932379317,1.0,computadoras >> disco duro interno/externo
-price_pearson,1.0,0.044018856076653574,-0.027199042097706537,computadoras >> impresora/cartuchos
-hour_pearson,0.044018856076653574,1.0,-0.12936968664442178,computadoras >> impresora/cartuchos
-weekday_pearson,-0.027199042097706537,-0.12936968664442178,1.0,computadoras >> impresora/cartuchos
-price_spearman,1.0,0.157762719033883,-0.061495806556314064,computadoras >> impresora/cartuchos
-hour_spearman,0.157762719033883,1.0,-0.10981576172530318,computadoras >> impresora/cartuchos
-weekday_spearman,-0.061495806556314064,-0.10981576172530318,1.0,computadoras >> impresora/cartuchos
-price_kendall,1.0,0.10925334274727425,-0.04813426725401417,computadoras >> impresora/cartuchos
-hour_kendall,0.10925334274727425,1.0,-0.07835218792959465,computadoras >> impresora/cartuchos
-weekday_kendall,-0.04813426725401417,-0.07835218792959465,1.0,computadoras >> impresora/cartuchos
-price_pearson,1.0,0.034717610382262655,0.02499681313574693,computadoras >> internet/email
-hour_pearson,0.034717610382262655,1.0,0.062079983418382396,computadoras >> internet/email
-weekday_pearson,0.02499681313574693,0.062079983418382396,1.0,computadoras >> internet/email
-price_spearman,1.0,-0.07611049777459282,0.13743906298035125,computadoras >> internet/email
-hour_spearman,-0.07611049777459282,1.0,0.07568725440637866,computadoras >> internet/email
-weekday_spearman,0.13743906298035125,0.07568725440637866,1.0,computadoras >> internet/email
-price_kendall,1.0,-0.053582361291477344,0.09844831281020762,computadoras >> internet/email
-hour_kendall,-0.053582361291477344,1.0,0.059351399361875404,computadoras >> internet/email
-weekday_kendall,0.09844831281020762,0.059351399361875404,1.0,computadoras >> internet/email
-price_pearson,1.0,-0.005439889441389574,0.05273645361561638,computadoras >> laptop
-hour_pearson,-0.005439889441389574,1.0,-0.07158554347419645,computadoras >> laptop
-weekday_pearson,0.05273645361561638,-0.07158554347419645,1.0,computadoras >> laptop
-price_spearman,1.0,0.055579683440410727,0.03783904287526013,computadoras >> laptop
-hour_spearman,0.055579683440410727,1.0,-0.09868006845182734,computadoras >> laptop
-weekday_spearman,0.03783904287526013,-0.09868006845182734,1.0,computadoras >> laptop
-price_kendall,1.0,0.040504851839230145,0.025982916339667015,computadoras >> laptop
-hour_kendall,0.040504851839230145,1.0,-0.08419833673705843,computadoras >> laptop
-weekday_kendall,0.025982916339667015,-0.08419833673705843,1.0,computadoras >> laptop
-price_pearson,1.0,0.15937674917752334,-0.09023037567571675,computadoras >> memoria ram/flash
-hour_pearson,0.15937674917752334,1.0,0.09578823553984163,computadoras >> memoria ram/flash
-weekday_pearson,-0.09023037567571675,0.09578823553984163,1.0,computadoras >> memoria ram/flash
-price_spearman,1.0,-0.007925545552457523,0.21994812075433048,computadoras >> memoria ram/flash
-hour_spearman,-0.007925545552457523,1.0,0.062386178405683286,computadoras >> memoria ram/flash
-weekday_spearman,0.21994812075433048,0.062386178405683286,1.0,computadoras >> memoria ram/flash
-price_kendall,1.0,-0.0015013534751015644,0.17172305145102668,computadoras >> memoria ram/flash
-hour_kendall,-0.0015013534751015644,1.0,0.05204749711076824,computadoras >> memoria ram/flash
-weekday_kendall,0.17172305145102668,0.05204749711076824,1.0,computadoras >> memoria ram/flash
-price_pearson,1.0,-0.019070757982123945,-0.011536453958544024,empleos >> busco empleo
-hour_pearson,-0.019070757982123945,1.0,0.05367068543601503,empleos >> busco empleo
-weekday_pearson,-0.011536453958544024,0.05367068543601503,1.0,empleos >> busco empleo
-price_spearman,1.0,0.015649136696249653,0.0014556023906266795,empleos >> busco empleo
-hour_spearman,0.015649136696249653,1.0,0.06246306205490474,empleos >> busco empleo
-weekday_spearman,0.0014556023906266795,0.06246306205490474,1.0,empleos >> busco empleo
-price_kendall,1.0,0.011024783359536989,0.0025296690464515336,empleos >> busco empleo
-hour_kendall,0.011024783359536989,1.0,0.04637943706232286,empleos >> busco empleo
-weekday_kendall,0.0025296690464515336,0.04637943706232286,1.0,empleos >> busco empleo
-price_pearson,1.0,-0.04191470467943094,-0.07977068454943004,empleos >> ofertas de empleo
-hour_pearson,-0.04191470467943094,1.0,-0.029670803560889827,empleos >> ofertas de empleo
-weekday_pearson,-0.07977068454943004,-0.029670803560889827,1.0,empleos >> ofertas de empleo
-price_spearman,1.0,-0.047058599352838786,0.021348512056135326,empleos >> ofertas de empleo
-hour_spearman,-0.047058599352838786,1.0,-0.029804741620590436,empleos >> ofertas de empleo
-weekday_spearman,0.021348512056135326,-0.029804741620590436,1.0,empleos >> ofertas de empleo
-price_kendall,1.0,-0.03061159452714103,0.016294539374050034,empleos >> ofertas de empleo
-hour_kendall,-0.03061159452714103,1.0,-0.0203957623307742,empleos >> ofertas de empleo
-weekday_kendall,0.016294539374050034,-0.0203957623307742,1.0,empleos >> ofertas de empleo
+,price,hour,weekday,group,N
+price_pearson,,-0.0,-0.01,ALL,48493
+hour_pearson,-0.0,,-0.12,ALL,48493
+weekday_pearson,-0.01,-0.12,,ALL,48493
+price_spearman,,0.05,-0.05,ALL,48493
+hour_spearman,0.05,,-0.13,ALL,48493
+weekday_spearman,-0.05,-0.13,,ALL,48493
+price_kendall,,0.03,-0.04,ALL,48493
+hour_kendall,0.03,,-0.1,ALL,48493
+weekday_kendall,-0.04,-0.1,,ALL,48493
+price_pearson,,-0.03,0.05,autos >> alquiler,750
+hour_pearson,-0.03,,0.07,autos >> alquiler,750
+weekday_pearson,0.05,0.07,,autos >> alquiler,750
+price_spearman,,0.01,0.0,autos >> alquiler,750
+hour_spearman,0.01,,0.07,autos >> alquiler,750
+weekday_spearman,0.0,0.07,,autos >> alquiler,750
+price_kendall,,0.01,0.0,autos >> alquiler,750
+hour_kendall,0.01,,0.05,autos >> alquiler,750
+weekday_kendall,0.0,0.05,,autos >> alquiler,750
+price_pearson,,0.04,0.04,autos >> bicicletas,1977
+hour_pearson,0.04,,0.01,autos >> bicicletas,1977
+weekday_pearson,0.04,0.01,,autos >> bicicletas,1977
+price_spearman,,0.11,0.02,autos >> bicicletas,1977
+hour_spearman,0.11,,0.0,autos >> bicicletas,1977
+weekday_spearman,0.02,0.0,,autos >> bicicletas,1977
+price_kendall,,0.08,0.02,autos >> bicicletas,1977
+hour_kendall,0.08,,0.0,autos >> bicicletas,1977
+weekday_kendall,0.02,0.0,,autos >> bicicletas,1977
+price_pearson,,0.05,0.03,autos >> carros,2014
+hour_pearson,0.05,,-0.14,autos >> carros,2014
+weekday_pearson,0.03,-0.14,,autos >> carros,2014
+price_spearman,,-0.07,-0.15,autos >> carros,2014
+hour_spearman,-0.07,,-0.14,autos >> carros,2014
+weekday_spearman,-0.15,-0.14,,autos >> carros,2014
+price_kendall,,-0.05,-0.12,autos >> carros,2014
+hour_kendall,-0.05,,-0.12,autos >> carros,2014
+weekday_kendall,-0.12,-0.12,,autos >> carros,2014
+price_pearson,,-0.03,0.04,autos >> mecánico,1426
+hour_pearson,-0.03,,0.04,autos >> mecánico,1426
+weekday_pearson,0.04,0.04,,autos >> mecánico,1426
+price_spearman,,0.05,0.11,autos >> mecánico,1426
+hour_spearman,0.05,,0.05,autos >> mecánico,1426
+weekday_spearman,0.11,0.05,,autos >> mecánico,1426
+price_kendall,,0.03,0.08,autos >> mecánico,1426
+hour_kendall,0.03,,0.04,autos >> mecánico,1426
+weekday_kendall,0.08,0.04,,autos >> mecánico,1426
+price_pearson,,0.04,-0.01,autos >> motos,1916
+hour_pearson,0.04,,-0.43,autos >> motos,1916
+weekday_pearson,-0.01,-0.43,,autos >> motos,1916
+price_spearman,,0.13,-0.01,autos >> motos,1916
+hour_spearman,0.13,,-0.37,autos >> motos,1916
+weekday_spearman,-0.01,-0.37,,autos >> motos,1916
+price_kendall,,0.09,-0.01,autos >> motos,1916
+hour_kendall,0.09,,-0.3,autos >> motos,1916
+weekday_kendall,-0.01,-0.3,,autos >> motos,1916
+price_pearson,,0.04,-0.01,autos >> otros,1102
+hour_pearson,0.04,,0.0,autos >> otros,1102
+weekday_pearson,-0.01,0.0,,autos >> otros,1102
+price_spearman,,0.08,0.06,autos >> otros,1102
+hour_spearman,0.08,,0.0,autos >> otros,1102
+weekday_spearman,0.06,0.0,,autos >> otros,1102
+price_kendall,,0.05,0.04,autos >> otros,1102
+hour_kendall,0.05,,0.0,autos >> otros,1102
+weekday_kendall,0.04,0.0,,autos >> otros,1102
+price_pearson,,0.03,-0.01,autos >> piezas/accesorios,1391
+hour_pearson,0.03,,-0.76,autos >> piezas/accesorios,1391
+weekday_pearson,-0.01,-0.76,,autos >> piezas/accesorios,1391
+price_spearman,,-0.0,-0.06,autos >> piezas/accesorios,1391
+hour_spearman,-0.0,,-0.53,autos >> piezas/accesorios,1391
+weekday_spearman,-0.06,-0.53,,autos >> piezas/accesorios,1391
+price_kendall,,-0.0,-0.05,autos >> piezas/accesorios,1391
+hour_kendall,-0.0,,-0.45,autos >> piezas/accesorios,1391
+weekday_kendall,-0.05,-0.45,,autos >> piezas/accesorios,1391
+price_pearson,,-0.04,0.04,compra / venta >> aire acondicionado,2106
+hour_pearson,-0.04,,0.08,compra / venta >> aire acondicionado,2106
+weekday_pearson,0.04,0.08,,compra / venta >> aire acondicionado,2106
+price_spearman,,0.05,-0.04,compra / venta >> aire acondicionado,2106
+hour_spearman,0.05,,0.0,compra / venta >> aire acondicionado,2106
+weekday_spearman,-0.04,0.0,,compra / venta >> aire acondicionado,2106
+price_kendall,,0.04,-0.03,compra / venta >> aire acondicionado,2106
+hour_kendall,0.04,,-0.0,compra / venta >> aire acondicionado,2106
+weekday_kendall,-0.03,-0.0,,compra / venta >> aire acondicionado,2106
+price_pearson,,-0.01,0.03,compra / venta >> antiguedades/colección,1316
+hour_pearson,-0.01,,-0.18,compra / venta >> antiguedades/colección,1316
+weekday_pearson,0.03,-0.18,,compra / venta >> antiguedades/colección,1316
+price_spearman,,0.02,0.01,compra / venta >> antiguedades/colección,1316
+hour_spearman,0.02,,-0.16,compra / venta >> antiguedades/colección,1316
+weekday_spearman,0.01,-0.16,,compra / venta >> antiguedades/colección,1316
+price_kendall,,0.01,0.01,compra / venta >> antiguedades/colección,1316
+hour_kendall,0.01,,-0.12,compra / venta >> antiguedades/colección,1316
+weekday_kendall,0.01,-0.12,,compra / venta >> antiguedades/colección,1316
+price_pearson,,-0.06,-0.04,compra / venta >> arte,1036
+hour_pearson,-0.06,,0.02,compra / venta >> arte,1036
+weekday_pearson,-0.04,0.02,,compra / venta >> arte,1036
+price_spearman,,0.06,0.01,compra / venta >> arte,1036
+hour_spearman,0.06,,0.01,compra / venta >> arte,1036
+weekday_spearman,0.01,0.01,,compra / venta >> arte,1036
+price_kendall,,0.04,0.01,compra / venta >> arte,1036
+hour_kendall,0.04,,0.01,compra / venta >> arte,1036
+weekday_kendall,0.01,0.01,,compra / venta >> arte,1036
+price_pearson,,0.02,-0.02,compra / venta >> celulares/líneas/accesorios,1826
+hour_pearson,0.02,,-0.69,compra / venta >> celulares/líneas/accesorios,1826
+weekday_pearson,-0.02,-0.69,,compra / venta >> celulares/líneas/accesorios,1826
+price_spearman,,-0.02,0.14,compra / venta >> celulares/líneas/accesorios,1826
+hour_spearman,-0.02,,-0.6,compra / venta >> celulares/líneas/accesorios,1826
+weekday_spearman,0.14,-0.6,,compra / venta >> celulares/líneas/accesorios,1826
+price_kendall,,-0.02,0.11,compra / venta >> celulares/líneas/accesorios,1826
+hour_kendall,-0.02,,-0.53,compra / venta >> celulares/líneas/accesorios,1826
+weekday_kendall,0.11,-0.53,,compra / venta >> celulares/líneas/accesorios,1826
+price_pearson,,-0.01,-0.02,compra / venta >> consola videojuego/juegos,2024
+hour_pearson,-0.01,,-0.0,compra / venta >> consola videojuego/juegos,2024
+weekday_pearson,-0.02,-0.0,,compra / venta >> consola videojuego/juegos,2024
+price_spearman,,-0.03,0.08,compra / venta >> consola videojuego/juegos,2024
+hour_spearman,-0.03,,-0.0,compra / venta >> consola videojuego/juegos,2024
+weekday_spearman,0.08,-0.0,,compra / venta >> consola videojuego/juegos,2024
+price_kendall,,-0.02,0.06,compra / venta >> consola videojuego/juegos,2024
+hour_kendall,-0.02,,0.0,compra / venta >> consola videojuego/juegos,2024
+weekday_kendall,0.06,0.0,,compra / venta >> consola videojuego/juegos,2024
+price_pearson,,0.04,-0.01,compra / venta >> cámara foto/video,1829
+hour_pearson,0.04,,-0.01,compra / venta >> cámara foto/video,1829
+weekday_pearson,-0.01,-0.01,,compra / venta >> cámara foto/video,1829
+price_spearman,,0.08,0.01,compra / venta >> cámara foto/video,1829
+hour_spearman,0.08,,-0.0,compra / venta >> cámara foto/video,1829
+weekday_spearman,0.01,-0.0,,compra / venta >> cámara foto/video,1829
+price_kendall,,0.06,0.01,compra / venta >> cámara foto/video,1829
+hour_kendall,0.06,,-0.0,compra / venta >> cámara foto/video,1829
+weekday_kendall,0.01,-0.0,,compra / venta >> cámara foto/video,1829
+price_pearson,,0.05,0.02,compra / venta >> divisas,1154
+hour_pearson,0.05,,-0.06,compra / venta >> divisas,1154
+weekday_pearson,0.02,-0.06,,compra / venta >> divisas,1154
+price_spearman,,-0.06,0.09,compra / venta >> divisas,1154
+hour_spearman,-0.06,,-0.07,compra / venta >> divisas,1154
+weekday_spearman,0.09,-0.07,,compra / venta >> divisas,1154
+price_kendall,,-0.05,0.06,compra / venta >> divisas,1154
+hour_kendall,-0.05,,-0.05,compra / venta >> divisas,1154
+weekday_kendall,0.06,-0.05,,compra / venta >> divisas,1154
+price_pearson,,-0.09,0.08,compra / venta >> electrodomésticos,1585
+hour_pearson,-0.09,,-0.93,compra / venta >> electrodomésticos,1585
+weekday_pearson,0.08,-0.93,,compra / venta >> electrodomésticos,1585
+price_spearman,,-0.02,0.03,compra / venta >> electrodomésticos,1585
+hour_spearman,-0.02,,-0.62,compra / venta >> electrodomésticos,1585
+weekday_spearman,0.03,-0.62,,compra / venta >> electrodomésticos,1585
+price_kendall,,-0.01,0.03,compra / venta >> electrodomésticos,1585
+hour_kendall,-0.01,,-0.55,compra / venta >> electrodomésticos,1585
+weekday_kendall,0.03,-0.55,,compra / venta >> electrodomésticos,1585
+price_pearson,,-0.0,0.02,compra / venta >> implementos deportivos,1624
+hour_pearson,-0.0,,-0.12,compra / venta >> implementos deportivos,1624
+weekday_pearson,0.02,-0.12,,compra / venta >> implementos deportivos,1624
+price_spearman,,0.0,0.08,compra / venta >> implementos deportivos,1624
+hour_spearman,0.0,,-0.13,compra / venta >> implementos deportivos,1624
+weekday_spearman,0.08,-0.13,,compra / venta >> implementos deportivos,1624
+price_kendall,,0.0,0.06,compra / venta >> implementos deportivos,1624
+hour_kendall,0.0,,-0.09,compra / venta >> implementos deportivos,1624
+weekday_kendall,0.06,-0.09,,compra / venta >> implementos deportivos,1624
+price_pearson,,-0.01,-0.03,compra / venta >> intercambio/regalo,1905
+hour_pearson,-0.01,,-0.03,compra / venta >> intercambio/regalo,1905
+weekday_pearson,-0.03,-0.03,,compra / venta >> intercambio/regalo,1905
+price_spearman,,0.07,-0.01,compra / venta >> intercambio/regalo,1905
+hour_spearman,0.07,,-0.03,compra / venta >> intercambio/regalo,1905
+weekday_spearman,-0.01,-0.03,,compra / venta >> intercambio/regalo,1905
+price_kendall,,0.05,-0.01,compra / venta >> intercambio/regalo,1905
+hour_kendall,0.05,,-0.02,compra / venta >> intercambio/regalo,1905
+weekday_kendall,-0.01,-0.02,,compra / venta >> intercambio/regalo,1905
+price_pearson,,-0.04,0.02,compra / venta >> joyas/relojes,1532
+hour_pearson,-0.04,,-0.06,compra / venta >> joyas/relojes,1532
+weekday_pearson,0.02,-0.06,,compra / venta >> joyas/relojes,1532
+price_spearman,,0.05,-0.09,compra / venta >> joyas/relojes,1532
+hour_spearman,0.05,,-0.08,compra / venta >> joyas/relojes,1532
+weekday_spearman,-0.09,-0.08,,compra / venta >> joyas/relojes,1532
+price_kendall,,0.04,-0.07,compra / venta >> joyas/relojes,1532
+hour_kendall,0.04,,-0.06,compra / venta >> joyas/relojes,1532
+weekday_kendall,-0.07,-0.06,,compra / venta >> joyas/relojes,1532
+price_pearson,,0.05,0.04,compra / venta >> libros/revistas,402
+hour_pearson,0.05,,-0.06,compra / venta >> libros/revistas,402
+weekday_pearson,0.04,-0.06,,compra / venta >> libros/revistas,402
+price_spearman,,0.02,0.14,compra / venta >> libros/revistas,402
+hour_spearman,0.02,,-0.04,compra / venta >> libros/revistas,402
+weekday_spearman,0.14,-0.04,,compra / venta >> libros/revistas,402
+price_kendall,,0.02,0.11,compra / venta >> libros/revistas,402
+hour_kendall,0.02,,-0.03,compra / venta >> libros/revistas,402
+weekday_kendall,0.11,-0.03,,compra / venta >> libros/revistas,402
+price_pearson,,-0.04,-0.01,compra / venta >> mascotas/animales,1212
+hour_pearson,-0.04,,-0.01,compra / venta >> mascotas/animales,1212
+weekday_pearson,-0.01,-0.01,,compra / venta >> mascotas/animales,1212
+price_spearman,,-0.0,0.13,compra / venta >> mascotas/animales,1212
+hour_spearman,-0.0,,0.0,compra / venta >> mascotas/animales,1212
+weekday_spearman,0.13,0.0,,compra / venta >> mascotas/animales,1212
+price_kendall,,-0.0,0.1,compra / venta >> mascotas/animales,1212
+hour_kendall,-0.0,,0.0,compra / venta >> mascotas/animales,1212
+weekday_kendall,0.1,0.0,,compra / venta >> mascotas/animales,1212
+price_pearson,,0.03,0.02,compra / venta >> muebles/decoración,1300
+hour_pearson,0.03,,0.18,compra / venta >> muebles/decoración,1300
+weekday_pearson,0.02,0.18,,compra / venta >> muebles/decoración,1300
+price_spearman,,0.07,0.01,compra / venta >> muebles/decoración,1300
+hour_spearman,0.07,,0.11,compra / venta >> muebles/decoración,1300
+weekday_spearman,0.01,0.11,,compra / venta >> muebles/decoración,1300
+price_kendall,,0.05,0.01,compra / venta >> muebles/decoración,1300
+hour_kendall,0.05,,0.09,compra / venta >> muebles/decoración,1300
+weekday_kendall,0.01,0.09,,compra / venta >> muebles/decoración,1300
+price_pearson,,-0.02,0.05,compra / venta >> otros,1355
+hour_pearson,-0.02,,0.26,compra / venta >> otros,1355
+weekday_pearson,0.05,0.26,,compra / venta >> otros,1355
+price_spearman,,0.04,0.04,compra / venta >> otros,1355
+hour_spearman,0.04,,0.1,compra / venta >> otros,1355
+weekday_spearman,0.04,0.1,,compra / venta >> otros,1355
+price_kendall,,0.03,0.04,compra / venta >> otros,1355
+hour_kendall,0.03,,0.08,compra / venta >> otros,1355
+weekday_kendall,0.04,0.08,,compra / venta >> otros,1355
+price_pearson,,-0.01,-0.04,compra / venta >> reproductor dvd/vcd/dvr,1087
+hour_pearson,-0.01,,0.06,compra / venta >> reproductor dvd/vcd/dvr,1087
+weekday_pearson,-0.04,0.06,,compra / venta >> reproductor dvd/vcd/dvr,1087
+price_spearman,,-0.03,-0.09,compra / venta >> reproductor dvd/vcd/dvr,1087
+hour_spearman,-0.03,,0.07,compra / venta >> reproductor dvd/vcd/dvr,1087
+weekday_spearman,-0.09,0.07,,compra / venta >> reproductor dvd/vcd/dvr,1087
+price_kendall,,-0.02,-0.07,compra / venta >> reproductor dvd/vcd/dvr,1087
+hour_kendall,-0.02,,0.05,compra / venta >> reproductor dvd/vcd/dvr,1087
+weekday_kendall,-0.07,0.05,,compra / venta >> reproductor dvd/vcd/dvr,1087
+price_pearson,,0.01,0.02,compra / venta >> reproductor mp3/mp4/ipod,1678
+hour_pearson,0.01,,-0.01,compra / venta >> reproductor mp3/mp4/ipod,1678
+weekday_pearson,0.02,-0.01,,compra / venta >> reproductor mp3/mp4/ipod,1678
+price_spearman,,0.01,0.01,compra / venta >> reproductor mp3/mp4/ipod,1678
+hour_spearman,0.01,,-0.01,compra / venta >> reproductor mp3/mp4/ipod,1678
+weekday_spearman,0.01,-0.01,,compra / venta >> reproductor mp3/mp4/ipod,1678
+price_kendall,,0.01,0.0,compra / venta >> reproductor mp3/mp4/ipod,1678
+hour_kendall,0.01,,-0.01,compra / venta >> reproductor mp3/mp4/ipod,1678
+weekday_kendall,0.0,-0.01,,compra / venta >> reproductor mp3/mp4/ipod,1678
+price_pearson,,0.02,0.11,compra / venta >> ropa/zapato/accesorios,1548
+hour_pearson,0.02,,-0.28,compra / venta >> ropa/zapato/accesorios,1548
+weekday_pearson,0.11,-0.28,,compra / venta >> ropa/zapato/accesorios,1548
+price_spearman,,0.0,0.17,compra / venta >> ropa/zapato/accesorios,1548
+hour_spearman,0.0,,-0.28,compra / venta >> ropa/zapato/accesorios,1548
+weekday_spearman,0.17,-0.28,,compra / venta >> ropa/zapato/accesorios,1548
+price_kendall,,0.0,0.14,compra / venta >> ropa/zapato/accesorios,1548
+hour_kendall,0.0,,-0.23,compra / venta >> ropa/zapato/accesorios,1548
+weekday_kendall,0.14,-0.23,,compra / venta >> ropa/zapato/accesorios,1548
+price_pearson,,-0.02,-0.05,compra / venta >> satélite,708
+hour_pearson,-0.02,,-0.03,compra / venta >> satélite,708
+weekday_pearson,-0.05,-0.03,,compra / venta >> satélite,708
+price_spearman,,-0.02,-0.01,compra / venta >> satélite,708
+hour_spearman,-0.02,,-0.02,compra / venta >> satélite,708
+weekday_spearman,-0.01,-0.02,,compra / venta >> satélite,708
+price_kendall,,-0.01,-0.01,compra / venta >> satélite,708
+hour_kendall,-0.01,,-0.01,compra / venta >> satélite,708
+weekday_kendall,-0.01,-0.01,,compra / venta >> satélite,708
+price_pearson,,-0.01,-0.02,compra / venta >> televisor,1469
+hour_pearson,-0.01,,0.15,compra / venta >> televisor,1469
+weekday_pearson,-0.02,0.15,,compra / venta >> televisor,1469
+price_spearman,,0.01,0.06,compra / venta >> televisor,1469
+hour_spearman,0.01,,0.08,compra / venta >> televisor,1469
+weekday_spearman,0.06,0.08,,compra / venta >> televisor,1469
+price_kendall,,0.01,0.05,compra / venta >> televisor,1469
+hour_kendall,0.01,,0.07,compra / venta >> televisor,1469
+weekday_kendall,0.05,0.07,,compra / venta >> televisor,1469
+price_pearson,,-0.02,0.05,computadoras >> backup/ups,967
+hour_pearson,-0.02,,-0.06,computadoras >> backup/ups,967
+weekday_pearson,0.05,-0.06,,computadoras >> backup/ups,967
+price_spearman,,-0.06,0.1,computadoras >> backup/ups,967
+hour_spearman,-0.06,,-0.06,computadoras >> backup/ups,967
+weekday_spearman,0.1,-0.06,,computadoras >> backup/ups,967
+price_kendall,,-0.05,0.07,computadoras >> backup/ups,967
+hour_kendall,-0.05,,-0.05,computadoras >> backup/ups,967
+weekday_kendall,0.07,-0.05,,computadoras >> backup/ups,967
+price_pearson,,0.09,-0.01,computadoras >> cd/dvd virgen,697
+hour_pearson,0.09,,0.0,computadoras >> cd/dvd virgen,697
+weekday_pearson,-0.01,0.0,,computadoras >> cd/dvd virgen,697
+price_spearman,,0.05,0.1,computadoras >> cd/dvd virgen,697
+hour_spearman,0.05,,0.02,computadoras >> cd/dvd virgen,697
+weekday_spearman,0.1,0.02,,computadoras >> cd/dvd virgen,697
+price_kendall,,0.04,0.07,computadoras >> cd/dvd virgen,697
+hour_kendall,0.04,,0.01,computadoras >> cd/dvd virgen,697
+weekday_kendall,0.07,0.01,,computadoras >> cd/dvd virgen,697
+price_pearson,,0.02,-0.03,computadoras >> chasis/fuente,1717
+hour_pearson,0.02,,-0.14,computadoras >> chasis/fuente,1717
+weekday_pearson,-0.03,-0.14,,computadoras >> chasis/fuente,1717
+price_spearman,,0.08,-0.05,computadoras >> chasis/fuente,1717
+hour_spearman,0.08,,-0.16,computadoras >> chasis/fuente,1717
+weekday_spearman,-0.05,-0.16,,computadoras >> chasis/fuente,1717
+price_kendall,,0.06,-0.04,computadoras >> chasis/fuente,1717
+hour_kendall,0.06,,-0.12,computadoras >> chasis/fuente,1717
+weekday_kendall,-0.04,-0.12,,computadoras >> chasis/fuente,1717
+price_pearson,,0.03,-0.01,computadoras >> disco duro interno/externo,2048
+hour_pearson,0.03,,-0.56,computadoras >> disco duro interno/externo,2048
+weekday_pearson,-0.01,-0.56,,computadoras >> disco duro interno/externo,2048
+price_spearman,,0.08,-0.07,computadoras >> disco duro interno/externo,2048
+hour_spearman,0.08,,-0.64,computadoras >> disco duro interno/externo,2048
+weekday_spearman,-0.07,-0.64,,computadoras >> disco duro interno/externo,2048
+price_kendall,,0.06,-0.06,computadoras >> disco duro interno/externo,2048
+hour_kendall,0.06,,-0.52,computadoras >> disco duro interno/externo,2048
+weekday_kendall,-0.06,-0.52,,computadoras >> disco duro interno/externo,2048
+price_pearson,,0.04,-0.03,computadoras >> impresora/cartuchos,1261
+hour_pearson,0.04,,-0.13,computadoras >> impresora/cartuchos,1261
+weekday_pearson,-0.03,-0.13,,computadoras >> impresora/cartuchos,1261
+price_spearman,,0.16,-0.06,computadoras >> impresora/cartuchos,1261
+hour_spearman,0.16,,-0.11,computadoras >> impresora/cartuchos,1261
+weekday_spearman,-0.06,-0.11,,computadoras >> impresora/cartuchos,1261
+price_kendall,,0.11,-0.05,computadoras >> impresora/cartuchos,1261
+hour_kendall,0.11,,-0.08,computadoras >> impresora/cartuchos,1261
+weekday_kendall,-0.05,-0.08,,computadoras >> impresora/cartuchos,1261
+price_pearson,,0.03,0.02,computadoras >> internet/email,586
+hour_pearson,0.03,,0.06,computadoras >> internet/email,586
+weekday_pearson,0.02,0.06,,computadoras >> internet/email,586
+price_spearman,,-0.08,0.14,computadoras >> internet/email,586
+hour_spearman,-0.08,,0.08,computadoras >> internet/email,586
+weekday_spearman,0.14,0.08,,computadoras >> internet/email,586
+price_kendall,,-0.05,0.1,computadoras >> internet/email,586
+hour_kendall,-0.05,,0.06,computadoras >> internet/email,586
+weekday_kendall,0.1,0.06,,computadoras >> internet/email,586
+price_pearson,,-0.01,0.05,computadoras >> laptop,870
+hour_pearson,-0.01,,-0.07,computadoras >> laptop,870
+weekday_pearson,0.05,-0.07,,computadoras >> laptop,870
+price_spearman,,0.06,0.04,computadoras >> laptop,870
+hour_spearman,0.06,,-0.1,computadoras >> laptop,870
+weekday_spearman,0.04,-0.1,,computadoras >> laptop,870
+price_kendall,,0.04,0.03,computadoras >> laptop,870
+hour_kendall,0.04,,-0.08,computadoras >> laptop,870
+weekday_kendall,0.03,-0.08,,computadoras >> laptop,870
+price_pearson,,0.16,-0.09,computadoras >> memoria ram/flash,100
+hour_pearson,0.16,,0.1,computadoras >> memoria ram/flash,100
+weekday_pearson,-0.09,0.1,,computadoras >> memoria ram/flash,100
+price_spearman,,-0.01,0.22,computadoras >> memoria ram/flash,100
+hour_spearman,-0.01,,0.06,computadoras >> memoria ram/flash,100
+weekday_spearman,0.22,0.06,,computadoras >> memoria ram/flash,100
+price_kendall,,-0.0,0.17,computadoras >> memoria ram/flash,100
+hour_kendall,-0.0,,0.05,computadoras >> memoria ram/flash,100
+weekday_kendall,0.17,0.05,,computadoras >> memoria ram/flash,100
+price_pearson,,-0.02,-0.01,empleos >> busco empleo,607
+hour_pearson,-0.02,,0.05,empleos >> busco empleo,607
+weekday_pearson,-0.01,0.05,,empleos >> busco empleo,607
+price_spearman,,0.02,0.0,empleos >> busco empleo,607
+hour_spearman,0.02,,0.06,empleos >> busco empleo,607
+weekday_spearman,0.0,0.06,,empleos >> busco empleo,607
+price_kendall,,0.01,0.0,empleos >> busco empleo,607
+hour_kendall,0.01,,0.05,empleos >> busco empleo,607
+weekday_kendall,0.0,0.05,,empleos >> busco empleo,607
+price_pearson,,-0.04,-0.08,empleos >> ofertas de empleo,368
+hour_pearson,-0.04,,-0.03,empleos >> ofertas de empleo,368
+weekday_pearson,-0.08,-0.03,,empleos >> ofertas de empleo,368
+price_spearman,,-0.05,0.02,empleos >> ofertas de empleo,368
+hour_spearman,-0.05,,-0.03,empleos >> ofertas de empleo,368
+weekday_spearman,0.02,-0.03,,empleos >> ofertas de empleo,368
+price_kendall,,-0.03,0.02,empleos >> ofertas de empleo,368
+hour_kendall,-0.03,,-0.02,empleos >> ofertas de empleo,368
+weekday_kendall,0.02,-0.02,,empleos >> ofertas de empleo,368
