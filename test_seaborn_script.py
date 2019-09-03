@@ -7,5 +7,6 @@ from scipy import stats
 sns.set(color_codes=True)
 
 x = np.random.normal(size=100)
-plot = sns.distplot(x)
+# plot = sns.distplot(x)
+plot = sns.boxplot(x)
 plot.get_figure().savefig('histogram.jpg')

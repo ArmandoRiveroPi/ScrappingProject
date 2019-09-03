@@ -20,7 +20,6 @@ class ExploratoryAnalysis(object):
     def __init__(self, groups: list):  # data: pd.DataFrame
         # Grouped data (name, DataFrame)
         self.groups = dict(list(groups))
-        # self.data = data
         self.stats = ExploratoryStatistics()
         self.viz = ExploratoryVisualization()
 
@@ -102,3 +101,5 @@ class ExploratoryAnalysis(object):
         return [stats, corr]
 
     # ----- VISUALIZATION SECTION -----
+    def group_box_plot(self):
+        self.viz.box_plot(self.groups)

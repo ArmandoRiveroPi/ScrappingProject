@@ -39,7 +39,33 @@ def build_stats_df(rawDF: pd.DataFrame):
     stData['price'] = stData['price'].apply(recalculate_prices)
     stData['hour'] = stData['hour'].apply(recalculate_time)
     stData['weekday'] = stData['weekday'].apply(recalculate_weekday)
+    stData = remove_outliers(stData)
     return stData
+
+
+def remove_outliers(df, deviations=10):
+    # List of bools telling whether to keep the row
+    keep = [True for i in range(df.shape[0])]
+    # Loop through all the columns
+    for column in df.columns:
+        col = str(column)
+        # Find the median and the iqr for the column
+        colData = df[col]
+        median = np.median(colData)
+        iqr = stats.iqr(colData)
+        # Loop through the values for the column
+        row = 0
+        for value in colData:
+            # If the value is outside median+-(deviations)*iqr
+            # mark the row with False to be deleted
+            if abs(value - median) > deviations * iqr:
+                keep[row] = False
+            row += 1
+
+    # Filter the df with the bool list
+    toKeep = pd.Series(keep, index=df.index)
+    newDF = df[toKeep]
+    return newDF
 
 
 def get_stats(rawData: pd.DataFrame, group='ALL'):
@@ -59,10 +85,11 @@ df['classification'] = df['classification'].apply(get_first_classification)
 groups = df.groupby('classification')
 groups = [(group[0], build_stats_df(group[1])) for group in groups]
 statsDF = build_stats_df(df)
-exp = ExploratoryAnalysis(statsDF)
-exp.set_groups(groups)
+groups.append(("ALL", statsDF))
+exp = ExploratoryAnalysis(groups)
+# exp.set_groups(groups)
 
-
-stats, corr = exp.groups_column_stats()
-stats.to_csv('ExploratoryStats.csv')
-corr.to_csv('Correlation.csv')
+exp.group_box_plot()
+# stats, corr = exp.groups_column_stats()
+# stats.to_csv('ExploratoryStats.csv')
+# corr.to_csv('Correlation.csv')
