@@ -55,14 +55,12 @@ dataFile = '/home/gauss/arm/importante/work/ai/projects/revolico/clean_data/ads_
 df = pd.read_csv(dataFile)  # [0:1000]
 df['classification'] = df['classification'].apply(get_first_classification)
 
-# stats, corr = get_stats(df)  # Explorer.all_column_stats()
 
 groups = df.groupby('classification')
 groups = [(group[0], build_stats_df(group[1])) for group in groups]
 statsDF = build_stats_df(df)
-groups.append(("ALL", statsDF))
-exp = ExploratoryAnalysis(groups)
-# exp.set_groups(groups)
+exp = ExploratoryAnalysis(statsDF)
+exp.set_groups(groups)
 
 
 stats, corr = exp.groups_column_stats()

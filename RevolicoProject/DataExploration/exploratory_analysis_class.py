@@ -17,10 +17,15 @@ class ExploratoryAnalysis(object):
     """Encapsulates the exploratory analysis functionality
     """
 
-    def __init__(self, data: pd.DataFrame):
-        self.data = data
+    def __init__(self, groups: list):  # data: pd.DataFrame
+        # Grouped data (name, DataFrame)
+        self.groups = dict(list(groups))
+        # self.data = data
         self.stats = ExploratoryStatistics()
         self.viz = ExploratoryVisualization()
+
+    def set_groups(self, groups):
+        self.groups = dict(list(groups))
 
     # ------- CLEANING SECTION -------------
 
@@ -34,14 +39,22 @@ class ExploratoryAnalysis(object):
         pass
 
     # ----- STATISTICS SECTION ------
-    def column_statistics(self, column):
-        return self.stats.get_statistics(self.data[column])
+    def select_group(self, groupName):
+        if groupName and groupName in self.groups:
+            return self.groups[groupName]
+        else:
+            return None
+
+    def column_statistics(self, column, groupName=""):
+        data = self.select_group(groupName)
+        return self.stats.get_statistics(data[column])
 
     def all_column_stats(self, group='ALL'):
         stats = []
-        cols = [str(col) for col in self.data.columns]
+        data = self.select_group(group)
+        cols = [str(col) for col in data.columns]
         for col in cols:
-            statistics = self.column_statistics(col)
+            statistics = self.column_statistics(col, group)
             statistics['variable'] = col
             statistics['group'] = group
             stats.append(statistics)
@@ -49,11 +62,12 @@ class ExploratoryAnalysis(object):
 
     def correlation_measures(self, group='ALL'):
         methods = ['pearson', 'spearman', 'kendall']
-        cols = [str(col) for i, col in enumerate(self.data.columns)]
+        data = self.select_group(group)
+        cols = [str(col) for i, col in enumerate(data.columns)]
         allCorr = pd.DataFrame()
         for ind, method in enumerate(methods):
             # Calculate the correlation
-            correlation = self.data.corr(method=method)
+            correlation = data.corr(method=method)
             # Clean the autocorrelation to not see it later
             correlation.values[[np.arange(correlation.shape[0])]*2] = np.nan
             # Change the names in the index to concatenate without loosing data
@@ -68,5 +82,23 @@ class ExploratoryAnalysis(object):
             correlation = correlation.round(2)
             allCorr = pd.concat([allCorr, correlation])
         allCorr['group'] = group
-        allCorr['N'] = self.data.shape[0]
+        allCorr['N'] = data.shape[0]
         return allCorr
+
+    def get_stats(self, groupName):
+        stats = self.all_column_stats(groupName)
+        corr = self.correlation_measures(groupName)
+        return [stats, corr]
+
+    def groups_column_stats(self):
+        stats = pd.DataFrame()
+        corr = pd.DataFrame()
+        for groupName in self.groups:
+            # groupDF = group[1]
+            print('Group =============> ', groupName)
+            groupStats, groupCorr = self.get_stats(groupName)
+            stats = pd.concat([stats, groupStats])
+            corr = pd.concat([corr, groupCorr])
+        return [stats, corr]
+
+    # ----- VISUALIZATION SECTION -----
