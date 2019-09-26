@@ -27,7 +27,6 @@ def build_subchunk(args):
     writer.write_ads(prepdata)
 
 
-# end, scrapper, preprocessor, writer
 def subchunk_args_array(cores, start, end, baseFolder):
     """This is for parallelization purposes
 

@@ -39,13 +39,7 @@ class Preprocessor:
 
     def transform_classification(self, key, content):
         if key == 'classification':
-            sep = ' >> '
-            parts = content.lower().split(sep)
-            if len(parts) >= 3:
-                content = parts[1] + sep + parts[2]
-            else:
-                print("Classification Error: ", content)
-                content = ''
+            content = self.classParser.get_classification(content)
         return content
 
     def transform_phone(self, key, content):
@@ -89,6 +83,8 @@ class Preprocessor:
     def preprocess_data(self, data):
         # Create the phone parser
         self.phoneParser = PhoneParser('')
+        # Create the classification parser
+        self.classParser = ClassificationParser()
         # Apply all transforms
         data = [self.all_transforms(datum) for datum in data]
         return data
@@ -99,10 +95,12 @@ class PhoneParser:
 
     Depends on the way the people write phones in the phone field, and also of Cuban phone numbers format
     Provides a list of phone numbers, ideally correctly formated Cuban phone numbers
+    Working with like 98% of phone numbers (getting the same number a human could)
     """
 
     def __init__(self, phoneString):
         self.string = phoneString
+        # TODO make these transformations case insensitive
         self.initianSubs = [
             [r'\b\(|\+53(\d?)\D+', r'\1'],  # the Cuban prefix
             [r'\b\(|\+34(\d?)\D+', r'\1'],  # the Spanish prefix
@@ -149,3 +147,28 @@ class PhoneParser:
             numbers = re.findall(r"(?:\D*\d){8}", self.string)
         numbers = [self.final_clean(number) for number in numbers]
         return numbers
+
+
+class ClassificationParser:
+    """Cares about transforming the original raw classifications
+    into our own classification system
+    """
+
+    def __init__(self):
+        self.sep = " >> "
+
+    def get_classification(self, origClass):
+        # First simplify the classification representation
+        origClass = self.simplify_old_class(origClass)
+        # Then perform the other transformations
+        newClass = origClass
+        return newClass
+
+    def simplify_old_class(self, origClass):
+        parts = origClass.lower().split(self.sep)
+        if len(parts) >= 3:
+            origClass = parts[1] + self.sep + parts[2]
+        else:
+            print("Classification Error: ", origClass)
+            origClass = ''
+        return origClass

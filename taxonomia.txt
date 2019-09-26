@@ -1,0 +1,114 @@
+La taxonomía es para añadir varios criterios de clasificación para los anuncios.
+
+Tipo de transaccion
+    Compra-venta
+    alquiler
+    servicio
+
+Clientes
+    Cubanos
+    Extranjeros
+
+Nivel del producto o servicio
+    Económico
+    Normal
+    De Lujo
+
+Areas
+    Alimentos
+        Restaurantes/Gastronomía
+    Vivienda
+        Muebles
+        Decoracion
+            Antiguedades
+            Arte
+        Limpieza/Doméstico
+        Construcción/Mantenimiento
+        Diseño/Decoración
+        Permuta
+        Casa en la playa
+    Transporte
+        Autos
+            Piezas/Accesorios
+        Motos
+            Piezas/Accesorios
+        Bicicletas
+            Piezas/Accesorios
+        Transportación
+            Mudanzas
+    Electronica
+        Computadoras
+            PC de Escritorio
+            Laptop
+            Microprocesador
+            Monitor
+            Motherboard
+            Memoria RAM/FLASH
+            Tarjeta de Video
+            Tarjeta de Sonido/Bocinas
+            Quemador/Lector DVD/CD
+            Backup/UPS
+            Disco Duro Interno/Externo
+            Chasis/Fuente
+            Modem/Wifi/Red
+            Webcam/Microf/Audífono
+            Teclado/Mouse
+            CD/DVD Virgen
+        Dispositivos
+            Celulares + Accesorios
+            Cámara Foto/Video
+            Consola Videojuego/Juegos
+            Reproductor MP3, MP4, Ipod
+            Audifono & Micrófono
+        Electrodomesticos
+            Reproductor DVD
+            Televisor
+            Aire Acondicionado
+            Equipo de audio
+            Impresora/Cartuchos
+        Reparación Electrónica
+    Finanzas
+        Préstamos
+        Divisas
+    Animales
+        Mascotas
+        No-mascotas
+        Veterinario
+        Vestuario/Accesorios
+    Vestuario/Accesorios
+        Zapatos
+        Ropa
+        Accesorios
+            Joyas/Relojes
+            Relojero/Joyero
+    Entretenimiento
+        Películas/Series/Videos
+        Música/Animación/Shows
+        Foto/Video
+
+    Educación
+        Libros/Revistas
+        Clases/Cursos
+    Informática & Comunicaciones
+        Líneas Móbiles
+        Internet/Email
+        Informática/Programación
+        Satélite
+    Salud & Cuidado Personal
+        Implementos Deportivos
+        Peluquería/Barbería/Belleza
+        Gimnasio/Masaje/Entrenador
+        Cuidado de Ancianos
+    Seguridad
+        Guardaespaldas
+
+    Empleos
+        Ofertas de empleo
+        Busco empleo
+    Otros
+        Intercambio/Regalo
+
+Etiquetas
+    Coleccionable
+    Mecánico
+    Reparación-Mantenimiento

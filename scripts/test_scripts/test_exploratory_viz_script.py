@@ -14,7 +14,7 @@ def get_first_classification(classification: str):
 
 
 def recalculate_prices(strPrice):
-    return float(re.sub('[a-z,]', "", strPrice))
+    return math.log10(float(re.sub('[a-z,]', "", strPrice)))
 
 
 def recalculate_time(dtStr: str):
@@ -90,6 +90,7 @@ exp = ExploratoryAnalysis(groups)
 # exp.set_groups(groups)
 
 exp.group_box_plot()
+exp.viz.pair_plot(statsDF)
 # stats, corr = exp.groups_column_stats()
 # stats.to_csv('ExploratoryStats.csv')
 # corr.to_csv('Correlation.csv')

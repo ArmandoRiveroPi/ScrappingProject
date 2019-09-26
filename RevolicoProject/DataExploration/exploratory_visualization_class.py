@@ -20,11 +20,16 @@ class ExploratoryVisualization(object):
         plotDF = self.reshape_df_to_plot(groups)
 
         sns.set_context(font_scale=0.6)
-        sns.set(rc={'figure.figsize': (2*11.7, 2 * 8.27)})
+        sns.set(rc={'figure.figsize': (2*11.7, 3 * 8.27)})
         for col in cols:
-            plot = sns.boxenplot(x=col, y="group", data=plotDF)
+            plot = sns.boxplot(x=col, y="group", data=plotDF)
             plot.set_title(col)
             plot.get_figure().savefig('boxplot_' + col + '.jpg')
+
+    def pair_plot(self, df):
+        plot = sns.pairplot(df)
+        # plot.set_title(col)
+        plot.fig.savefig('pairplot.jpg')
 
     def violin_plot(self, parameter_list):
         pass

@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'revolico',
     'webpack_loader',
+    "categories",
+    "categories.editor",
 ]
 
 MIDDLEWARE = [

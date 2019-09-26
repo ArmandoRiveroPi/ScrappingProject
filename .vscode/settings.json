@@ -30,6 +30,7 @@
     "*/.vscode": true,
     "*/friend-finder": "explorerExcludedFiles",
     "*/node_modules*": "explorerExcludedFiles",
-    "*.zip": "explorerExcludedFiles"
+    "*.zip": "explorerExcludedFiles",
+    "testingR.R": "explorerExcludedFiles"
   }
 }
